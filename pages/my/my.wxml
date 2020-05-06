@@ -1,0 +1,51 @@
+ <view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+    <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="cuIcon-title text-orange "></text> 
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </view>
+    <view class="action">
+      
+    </view>
+  </view>
+  <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}" >
+    <view class="cu-item {{menuArrow?'arrow':''}}" bindtap="onShareAppMessage" class="sha">
+      <button  class="share" open-type="share" >
+        <text class="cuIcon-discoverfill text-orange"></text>
+        <text class="text-grey">分享小程序</text>
+      </button>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-emojiflashfill text-pink"></text>
+        <text class="text-grey">头像组</text>
+      </view>
+      
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-tagfill text-red"></text>
+        <text class="text-grey">标签</text>
+      </view>
+      <view class="action">
+        <view class="cu-tag round bg-orange light">音乐</view>
+        <view class="cu-tag round bg-olive light">电影</view>
+        <view class="cu-tag round bg-blue light">旅行</view>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content" bindtap="enterAdmin">
+        <text class="cuIcon-tagfill text-red"></text>
+        <text class="text-grey">管理后台</text>
+      </view>
+    </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content">
+        <text class="cuIcon-warn text-green"></text>
+        <text class="text-grey">文本</text>
+      </view>
+      <view class="action">
+        <text class="text-grey text-sm">小目标还没有实现！</text>
+      </view>
+    </view>
+  </view>

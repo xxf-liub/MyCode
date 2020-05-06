@@ -1,0 +1,36 @@
+.m{
+  text-align: center;
+  font-size: 15px;
+}
+#sh0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+#zan{
+  color: gray
+}
+.zan{
+  color: gray
+}
+#zan0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+.loadimg{
+  width: 120px;
+  height: 120px;
+  margin: 20px auto;
+  display: block;
+}
+.imgtext{
+  letter-spacing: 2px;
+  width: 90px;
+  font-size: 20px;
+  margin: 20px auto;
+  display: block;
+  color: rgb(0, 143, 209)
+}

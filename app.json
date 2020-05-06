@@ -1,0 +1,47 @@
+{
+  "pages":[
+    "pages/login/login",
+    "pages/my/my",
+    "pages/admin/admin",
+    
+    "pages/home/home",
+    "pages/shop/shop",
+    
+    "pages/art/art"
+
+  ],
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#999999",
+    "selectedColor": "#cc1004",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "商城",
+        "iconPath": "pages/image/1.png",
+        "selectedIconPath": "pages/image/1.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "收藏夹",
+        "iconPath": "pages/image/2.png",
+        "selectedIconPath": "pages/image/3.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "pages/image/5.png",
+        "selectedIconPath": "pages/image/4.png"
+      }
+    ]
+  },
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "微源软件商城",
+    "navigationBarTextStyle":"black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

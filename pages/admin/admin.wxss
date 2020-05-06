@@ -1,0 +1,33 @@
+
+button{
+  margin-bottom: 5px;
+}
+image{
+  margin: 0px;
+  width: 100px;
+  height: 100px;
+  border: solid white 2px;
+  border-radius: 5px;
+  margin-right: 3px;
+}
+.pview{
+  display: inline-block;
+
+}
+.scroll{
+  white-space: nowrap;
+  overflow:hidden;
+}
+picker{
+  margin: 10px;
+  padding: 5px;
+}
+radio-group{
+  margin: 10px;
+}
+radio{
+  margin: 5px;
+}
+.ptext{
+  font-weight: bold;
+}

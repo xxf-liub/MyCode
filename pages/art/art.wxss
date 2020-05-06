@@ -1,0 +1,52 @@
+#title{
+  font-weight: bold;
+  color: black;
+}
+#ava{
+  background-color: #a3cd5e;
+  font-size: 9px;
+}
+#tag{
+  position:absolute; 
+  z-index: 999999;
+  padding: 3px;
+  border-radius: 2px;
+}
+.about{
+  margin: 5px;
+  padding: 5px;
+}
+#lab{
+  padding-bottom: 1px!important;
+}
+swiper-item{
+  padding-top: 0px!important;
+}
+#mok{
+  padding-top: 0px!important;
+}
+#sh0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+#zan{
+  color: gray
+}
+.zan{
+  color: gray
+}
+#zan0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+#adr{
+  white-space: wrap;
+}
+
+.sitem{
+  margin-bottom: 5px;
+}

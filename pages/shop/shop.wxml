@@ -1,0 +1,45 @@
+<view class="cu-bar bg-white solid-bottom margin-top" id="ti">
+  <view class='action'>
+    <text class='cuIcon-titles text-orange ' ></text> 我的收藏
+  </view>
+</view>
+
+<view wx:if="{{loadif}}">
+  <image src="../image/cube.gif" class="loadimg" mode="widthFill"></image>
+  <view class="imgtext">正在加载</view>
+ </view>
+<view wx:else>
+
+<view class="cu-timeline"  wx:for="{{cloud}}">
+  <view class="cu-time">{{col[index].time}}</view>
+  <view class="cu-item">
+    <view class="content">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-cyan">{{item.type}}</view>
+        <view class="cu-tag line-cyan">{{item.region}}</view>
+      </view>
+      <view class="margin-top" bindtap="enterArt" data-id="{{index}}">
+          <view class="cu-card article" id="mok">
+            <view class="cu-item shadow" id="mok-box" >
+            <view class="title" bindtap="enterArt" data-id="{{index}}">
+              <view class="text-cut">{{item.title}}</view>
+            </view>
+            <view class="content">
+              <image src="{{item.p1[0]}}" mode="aspectFill" bindtap="enterArt" data-id="{{index}}"></image>
+              <view class="desc">
+                <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{item.about}}</view>
+                <view>
+                  <text class="cu-btn bg animation margin-sm basis-sm shadow" id="sh0" ><text class="cuIcon-favorfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.col}}</text></text>
+        <text class="cu-btn bg animation margin-sm basis-sm shadow" id="zan0"  ><text class="cuIcon-appreciatefill margin-lr-xs"  id="zan" ></text> <text class="zan">{{item.zan}}</text></text>
+                </view>
+              </view>
+            </view>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+<view class="m" wx:if="{{mif}}" bindtap="getm" >{{mes}}</view>
+</view>

@@ -1,0 +1,86 @@
+<view class="cu-card case {{isCard?'no-card':''}}">
+  <view class="cu-item shadow">
+  <swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{cloud[index0].p1}}" data-id="{{index}}" bindtap="previewImg" class="sitem">
+  <view class="image">
+    <cover-view class="cu-tag bg-blue" id="tag">微源商城</cover-view>
+  </view>
+      <image src="{{item}}" mode="aspectFill" ></image>
+  </swiper-item>
+</swiper>
+    <view class="cu-list menu-avatar">
+      <view class="cu-item">
+           <view class="cu-avatar round lg" id="ava">{{cloud[index0].region}}</view>
+        <view class="content flex-sub">
+          <view class="text-grey" id="title">{{cloud[index0].title}}</view>
+          <view class="text-gray text-sm flex justify-between">
+            {{cloud[index0].time}}
+            <view class="text-gray text-sm">
+              <text class="cu-btn bg animation-{{animation==list[3].name?list[3].name:''}}" bindtap="addcol"  id="sh0" data-id="{{index}}" data-class="{{list[3].name}}" data-id="{{index}}"><text class="cuIcon-favorfill margin-lr-xs" id="sh"></text> <text class="zan">{{cloud[index0].col}}</text></text>
+              <text class="cu-btn bg animation-{{animation==list[3].name?list[3].name:''}} margin-sm basis-sm shadow" bindtap="addzan" data-class="{{list[3].name}}" id="zan0" data-id="{{index}}" ><text class="cuIcon-appreciatefill margin-lr-xs"  id="zan" ></text> <text class="zan">{{cloud[index0].zan}}</text></text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="about">{{cloud[index0].about}} </view>
+      
+      <view class="cu-bar bg-white margin-top" id="lab">
+        <view class="action">
+          <text class="cuIcon-title text-pink"></text> 相关推荐
+        </view>
+      </view>
+<swiper class="card-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{[0,1,2,3,4]}}" >
+      <view class="cu-card article" id="mok">
+    <view class="cu-item shadow" id="mok-box" >
+  <view class="title" bindtap="enterArt" data-id="{{index}}">
+      <view class="text-cut">{{array[index].title}}</view>
+    </view>
+    <view class="content">
+      <image src="{{array[index].p1[0]}}" mode="aspectFill" bindtap="enterArt" data-id="{{index}}"></image>
+      <view class="desc">
+        <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{array[index].about}}</view>
+        <view>
+          <view class="cu-tag bg-red light sm round">{{array[index].type}}</view>
+          <view class="cu-tag bg-green light sm round">{{array[index].region}}</view>
+             
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+  </swiper-item>
+</swiper>
+
+<view >
+  <view class="cu-bar bg-white margin-top" id="lab">
+          <view class="action">
+            <text class="cuIcon-title text-red"></text> 下载地址
+          </view>
+  </view>
+  <view class="padding bg-white" wx:if="{{iflink}}">
+  <view class="text-cut padding bg-grey radius" style="width:100%" id="adr"><a url="{{cloud[index0].adr}}" >{{cloud[index0].adr}}</a></view>
+</view>
+</view> 
+
+    </view>
+  </view>
+</view>
+
+
+
+<view class="cu-bar bg-white tabbar border shop">
+    <button class="action" open-type="contact">
+      <view class="cuIcon-service text-green">
+      </view>
+      客服
+    </button>
+    <view class="action" bindtap="entShop">
+      <view class="cuIcon-cart">
+        
+      </view>
+     收藏夹 
+    </view>
+    <view class="bg-orange submit" bindtap="addcol">加入收藏夹</view>
+    <view class="bg-red submit" bindtap="getAdr">获取下载地址</view>
+  </view>
