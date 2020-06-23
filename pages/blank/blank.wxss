@@ -1,0 +1,75 @@
+.text{
+  padding:1px  3px;
+}
+#ti{
+  
+}
+#mok{
+  
+  box-shadow: 0 0 5rpx rgba(156,38,176,0.25);
+}
+#mok-box{
+  border: 1px solid  rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+#sh{
+  color: gray;
+  margin-left: 35rpx!important;
+}
+#sh0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+#zan{
+  color: gray
+}
+.zan{
+  color: gray
+}
+#zan0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+.m{
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  
+}
+.mimg{
+  display: block;
+  width: 45px;
+  height:45px;
+  margin:5rpx auto;
+
+}
+.loadimg{
+  width: 60px;
+  height: 60px;
+  margin: 20px auto;
+  display: block;
+}
+.imgtext{
+  letter-spacing: 2px;
+ width: 70px;
+  font-size: 15px;
+  margin: 20px auto;
+  display: block;
+  color: rgb(0, 143, 209)
+}
+.active{
+  color: #e32e30;
+}
+.tab{
+  font-weight: bold;
+}

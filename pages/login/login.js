@@ -24,10 +24,7 @@ Page({
               //从数据库获取用户信息
               //that.queryUsreInfo();
               //用户已经授权过
-              app.globalData.userInfo = res.userInfo; console.log(app.globalData.userInfo);
-              wx.switchTab({
-                url: '/pages/home/home'
-              })
+              app.globalData.userInfo = res.userInfo; 
             }
           });
         }

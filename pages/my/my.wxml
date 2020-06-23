@@ -1,9 +1,14 @@
  <view class="cu-bar bg-white solid-bottom margin-top">
     <view class="action">
-    <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="cuIcon-title text-orange "></text> 
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <view wx:if="{{userif}}" class="tu">
+      <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
+    </view>
+    <view wx:if="{{userif==false}}"><button class='bottom'  type="primary" open-type="getUserInfo" lang="zh_CN"   bindgetuserinfo="bindGetUserInfo">
+    授权登录
+  </button></view>
+      
     <view class="action">
       
     </view>
@@ -16,33 +21,25 @@
       </button>
     </view>
     <view class="cu-item {{menuArrow?'arrow':''}}">
-      <view class="content">
-        <text class="cuIcon-emojiflashfill text-pink"></text>
-        <text class="text-grey">头像组</text>
-      </view>
+         
+    <button class="share" open-type="contact">
+      <text class="cuIcon-service text-green"></text>
+      <text class="text-grey">联系客服</text>
+    </button>
+      
       
     </view>
-    <view class="cu-item {{menuArrow?'arrow':''}}">
-      <view class="content">
-        <text class="cuIcon-tagfill text-red"></text>
-        <text class="text-grey">标签</text>
-      </view>
-      <view class="action">
-        <view class="cu-tag round bg-orange light">音乐</view>
-        <view class="cu-tag round bg-olive light">电影</view>
-        <view class="cu-tag round bg-blue light">旅行</view>
-      </view>
-    </view>
+    
     <view class="cu-item {{menuArrow?'arrow':''}}">
       <view class="content" bindtap="enterAdmin">
         <text class="cuIcon-tagfill text-red"></text>
         <text class="text-grey">管理后台</text>
       </view>
     </view>
-    <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view class="cu-item {{menuArrow?'arrow':''}}" bindtap="about">
       <view class="content">
-        <text class="cuIcon-warn text-green"></text>
-        <text class="text-grey">文本</text>
+        <text class="cuIcon-emojiflashfill text-green"></text>
+        <text class="text-grey">关于我们</text>
       </view>
       <view class="action">
         <text class="text-grey text-sm">小目标还没有实现！</text>

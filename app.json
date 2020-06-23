@@ -1,13 +1,17 @@
 {
   "pages":[
+    "pages/home/home",
     "pages/login/login",
     "pages/my/my",
     "pages/admin/admin",
     
-    "pages/home/home",
     "pages/shop/shop",
-    
-    "pages/art/art"
+    "pages/art/art",
+    "pages/mod/mod",
+    "pages/hot/hot",
+    "pages/code/code",
+    "pages/blank/blank",
+    "pages/result/result"
 
   ],
   "tabBar": {
@@ -38,8 +42,8 @@
   },
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "微源软件商城",
+    "navigationBarBackgroundColor": "#66ccff",
+    "navigationBarTitleText": "微源小程序",
     "navigationBarTextStyle":"black"
   },
   "style": "v2",

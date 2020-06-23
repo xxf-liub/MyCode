@@ -22,7 +22,7 @@
 			图片上传
 		</view>
 		<view class="action">
-			{{array.length}}/4
+			{{array.length}}/6
 		</view>
 	</view>
 	<view class="cu-form-group">

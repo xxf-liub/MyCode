@@ -1,7 +1,9 @@
 // pages/shop/shop.js
+var util = require('../../utils/dateUtil.js');
 let page;
 let key;
 let long;
+let cj=0;
 const app = getApp();
 Page({
 
@@ -9,7 +11,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    col:[],
     cloud:[],
     mes: '加载更多',
     mif:true,
@@ -20,7 +21,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if (app.globalData.userInfo.length == 0 || app.globalData.oppenid == '') {
+      wx.showModal({
+        title: '登录提醒',
+        content: '在登录小程序后才能进行点赞和收藏',
+        showCancel: false,
+        success(res) {
+          wx.switchTab({
+            url: '../my/my',
+
+          })
+        },
+        fail(res) {
+
+        }
+      })
+    }
+    else {
     this.loadInitData();
+    }
   },
   loadInitData: function () {
     var that = this;
@@ -35,18 +54,14 @@ Page({
         console.log("纪录", res.result.data);
         long = res.result.data.length;
         if(long<2){
-          
           that.setData({
             mif:false
           })
         }
-        that.setData({
-          col: res.result.data
-        })
         var i;
-        var len=that.data.col.length;
+        var len = res.result.data.length;
         for(i=0;i<len;i++){
-          that.getCloud(that.data.col[i].wuid); 
+          that.getCloud(res.result.data[i].wuid, res.result.data[i].time); 
         }
         that.setData({
           loadif: false
@@ -59,13 +74,14 @@ Page({
     })
   },
   getm(){
+    this.setData({
+      mif: false
+    })
     this.loadMoreData();
   },
   loadMoreData: function () {
     var that = this;
-    that.setData({
-      mif: true
-    })
+    
     
     page = page + 1;
     wx.cloud.callFunction({
@@ -75,24 +91,23 @@ Page({
         userid: app.globalData.oppenid
       },
       success(res) {
+       
         if (res.result.data.length == 0) {
           that.setData({
-            mes: '没有更多了'
+            mes: '没有更多了',
+            mif:true
           })
         }
         else {
           console.log("修改成功", res.result.data);
-          var originArticles = that.data.col;
-          var newArticles = originArticles.concat(res.result.data); 
+          
           that.setData({
-            col: newArticles,
-            cloud: [],
             loadif:false
           })
           var i;
-          var len = that.data.col.length;
+          var len = res.result.data.length;
           for (i = 0; i < len; i++) {
-            that.getCloud(that.data.col[i].wuid); 
+            that.getCloud(res.result.data[i].wuid, res.result.data[i].time); 
           }
         }
 
@@ -102,24 +117,36 @@ Page({
         }
     })
   },
-  getCloud(id){
+  getCloud(id,time){
     var that=this;
     const db = wx.cloud.database().collection("list");
     db.where({
       _id: id
     }).get({
       success(res) {
-        console.log("获取成功", res);
-        
-          var originArticles = that.data.cloud;
-          var newArticles = originArticles.concat(res.data);
-          that.setData({
-            cloud: newArticles,
-
-          })
-        
-        
-        
+        if (res.data.length != 0) {
+          
+          var obj =new Object();
+          obj.time=time;
+          obj.data = res.data;
+          var cloud = that.data.cloud;
+          cloud[cj]=obj;
+          cj++;
+          cloud=that.sortCloud(cloud);
+          if (that.data.mif == false) {
+            that.setData({
+              mif: true
+            })
+          }
+          
+          else{
+            that.setData({
+              cloud: cloud
+            })
+          }
+         
+          
+        }
       },
       fail(res) {
         console.log("获取失败", res);
@@ -127,15 +154,36 @@ Page({
     })
   },
   enterArt: function (e) {
+    var that =this;
+    var cloud = wx.getStorageSync('cloud');
     var index = e.currentTarget.dataset.id;
-    var that = this;
-    var cloud = JSON.stringify(that.data.cloud);
+    cloud = cloud.concat(that.data.cloud[index].data); 
+    var ind = cloud.length - 1; console.log(cloud[ind]);
+    cloud = encodeURIComponent(JSON.stringify(cloud));
+    
     wx.navigateTo({
-      url: '../art/art?index=' + index + '&cloud=' + cloud,
+      url: '../art/art?index=' +ind + '&cloud=' + cloud,
       success(res) {
 
       }
     })
+  },
+  sortCloud(cloud){
+    var cloud=cloud;
+    var that=this;
+    var len = cloud.length; console.log("cloud[i].time");
+    for(var i=0;i<len;i++){
+      for(var j=i;j<len;j++){
+        if (util.compareTime(cloud[i].time, cloud[j].time)==true){
+          var temp = cloud[i];
+          cloud[i]= cloud[j];
+          cloud[j]=temp;
+        }
+
+      }
+      console.log(cloud[i].time);
+    }
+    return cloud;
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -148,7 +196,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -170,9 +218,10 @@ Page({
    */
   onPullDownRefresh: function () {
     this.setData({
-      col: [],
       cloud: []
     })
+    page=0;
+    cj=0;
     this.loadInitData();
   },
 

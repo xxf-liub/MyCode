@@ -50,3 +50,12 @@ swiper-item{
 .sitem{
   margin-bottom: 5px;
 }
+.copy{
+  margin-top: 7rpx;
+  padding: 5rpx;
+}
+.action{
+  background: none;
+  border: none;
+  color: gray;
+}

@@ -8,7 +8,7 @@ let pic=[];
 let id="";
 let type ="网站源码";
 let mode1 = ['微擎模块', '影视源码', '小说源码', '游戏棋牌', '其他源码'];
-let mode2 = ['emlog模块', 'Wordpress模块', 'Zblog模块',  '其他模块'];
+let mode2 = ['emlog模块', 'Wordpress', 'Zblog模块',  '其他模块'];
 var util=require('../../utils/util.js')
 Page({
   data:{
@@ -37,7 +37,7 @@ Page({
   addpic() {
     var that=this;
     wx.chooseImage({
-      count:4,
+      count:6,
       sizeType:['original','compressed'],
       sourceType:['album','camera'],
       success: function(res) {

@@ -1,0 +1,41 @@
+
+<scroll-view scroll-x class="bg-white nav text-center">
+  <view class="cu-item {{currentTab==index?'active':''}} tab" data-current="{{index}}" wx:for="{{tab}}" wx:key  bindtap="tabSelect" data-id="{{index}}">
+    {{item}}
+  </view>
+</scroll-view>
+<view>
+  <text ></text>
+  <text ></text>
+  <text ></text>
+</view>
+
+<view wx:if="{{loadif}}">
+  <image src="../image/cube.gif" class="loadimg" mode="widthFill"></image>
+  <view class="imgtext">正在加载</view>
+ </view>
+<view wx:else>
+    <view class="cu-card article" wx:for="{{cloud}}" id="mok">
+      <view class="cu-item shadow" id="mok-box" >
+        <view class="title" bindtap="enterArt" data-id="{{index}}">
+          <view class="text-cut">{{item.title}}</view>
+        </view>
+        <view class="content">
+          <image src="{{item.p1[0]}}" mode="aspectFill" bindtap="enterArt" data-id="{{index}}"></image>
+          <view class="desc">
+            <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{item.about}}</view>
+            <view>
+              <view class="cu-tag bg-red light sm round">{{item.type}}</view>
+              <view class="cu-tag bg-green light sm round">{{item.region}}</view>
+                  
+                
+      <text class="cu-btn bg animation margin-sm basis-sm shadow" bindtap="addcol"  id="sh0" data-id="{{index}}" ><text class="cuIcon-favorfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.col}}</text></text>
+        <text class="cu-btn bg animation margin-sm basis-sm shadow" bindtap="addzan"  id="zan0" data-id="{{index}}" ><text class="cuIcon-appreciatefill margin-lr-xs"  id="zan" ></text> <text class="zan">{{item.zan}}</text></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+       <view class="m" wx:if="{{mif}}" bindtap="getm" >{{mes}}</view>
+    <image class="mimg" wx:if="{{!mif}}" src="../image/flicker.gif" />
+</view>

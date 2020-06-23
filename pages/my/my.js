@@ -6,40 +6,114 @@ Page({
    */
   data: {
     userInfo: {},
+    userif:false,
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo
-        })
-        console.log(res.userInfo);
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo
+    var that=this;
+    wx.getSetting({
+      success: function (res) {
+        if (res.authSetting['scope.userInfo']) {
+          wx.getUserInfo({
+            success: function (res) {
+              //从数据库获取用户信息
+              //that.queryUsreInfo();
+              //用户已经授权过
+              app.globalData.userInfo = res.userInfo; 
+              that.setData({
+                userInfo: app.globalData.userInfo,
+                userif: true
+              })
+            }
+          });
+          wx.cloud.callFunction({
+            name: "getopenid",
+            success(res) {
+              app.globalData.oppenid = res.result.openid;
+            },
+            fail(res) {
+              console.log("获取用户openid失败", res.result.openid);
+            }
           })
+        }
+      }
+    })
+    
+    console.log('1');
+    console.log(app.globalData.userInfo);
+    console.log(app.globalData.oppenid);
+    console.log('2')
+  },
+  about: function (){
+    wx.cloud.callFunction({
+      name: 'getAbout',
+      success(res) {
+        
+        wx.showModal({
+          title: '关于我们',
+          content: res.result.data[0].about,
+        })
+        
+      },
+      fail(res) {
+        
+      }
+    })
+    
+    
+},
+  bindGetUserInfo: function (e) {
+    console.log('a')
+    if (e.detail.userInfo) {
+      wx.getUserInfo({
+        success: function (res) {
+          //从数据库获取用户信息
+          //that.queryUsreInfo();
+          //用户已经授权过
+          app.globalData.userInfo = res.userInfo; console.log('a')
+          that.setData({
+            userInfo: app.globalData.userInfo,
+            userif: true
+          })
+          
+        }
+      });
+      //用户按了允许授权按钮
+      var that = this;
+      //授权成功后，跳转进入小程序首页
+      app.globalData.userInfo = e.detail.rawData; 
+      this.setData({
+        userInfo: app.globalData.userInfo,
+        userif: true
+      })
+      wx.cloud.callFunction({
+        name: "getopenid",
+        success(res) {
+          app.globalData.oppenid = res.result.openid; 
+        },
+        fail(res) {
+          console.log("获取用户openid失败", res.result.openid);
+        }
+      })
+    } else {
+      //用户按了拒绝按钮
+      wx.showModal({
+        title: '警告',
+        content: '您点击了拒绝授权，将无法进入小程序，请授权之后再进入!',
+        showCancel: false,
+        confirmText: '返回授权',
+        success: function (res) {
+          if (res.confirm) {
+            console.log('用户点击了“返回授权”')
+          }
         }
       })
     }
-
   },
-
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -96,9 +170,17 @@ Page({
   }
   ,
   enterAdmin(){
+    if (app.globalData.oppenid == 'ooxkO5JHqW5WCpmAcZgLrEWKzOKI'){
+      wx.redirectTo({
+        url: '../admin/admin',
+      })
+    }
+    else{
+      wx.showModal({
+        title: '权限验证',
+        content: '当前用户并未获取权限，请联系管理员获取权限',
+      })
+    }
     
-    wx.redirectTo({
-      url: '../admin/admin',
-    })
   }
 })

@@ -17,7 +17,7 @@
             {{cloud[index0].time}}
             <view class="text-gray text-sm">
               <text class="cu-btn bg animation-{{animation==list[3].name?list[3].name:''}}" bindtap="addcol"  id="sh0" data-id="{{index}}" data-class="{{list[3].name}}" data-id="{{index}}"><text class="cuIcon-favorfill margin-lr-xs" id="sh"></text> <text class="zan">{{cloud[index0].col}}</text></text>
-              <text class="cu-btn bg animation-{{animation==list[3].name?list[3].name:''}} margin-sm basis-sm shadow" bindtap="addzan" data-class="{{list[3].name}}" id="zan0" data-id="{{index}}" ><text class="cuIcon-appreciatefill margin-lr-xs"  id="zan" ></text> <text class="zan">{{cloud[index0].zan}}</text></text>
+              <text class="cu-btn bg animation-{{animation==list[2].name?list[2].name:''}} margin-sm basis-sm shadow" bindtap="addzan" data-class="{{list[2].name}}" id="zan0" data-id="{{index}}" ><text class="cuIcon-appreciatefill margin-lr-xs"  id="zan" ></text> <text class="zan">{{cloud[index0].zan}}</text></text>
             </view>
           </view>
         </view>
@@ -29,7 +29,7 @@
           <text class="cuIcon-title text-pink"></text> 相关推荐
         </view>
       </view>
-<swiper class="card-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+<swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
   <swiper-item wx:for="{{[0,1,2,3,4]}}" >
       <view class="cu-card article" id="mok">
     <view class="cu-item shadow" id="mok-box" >
@@ -60,6 +60,7 @@
   </view>
   <view class="padding bg-white" wx:if="{{iflink}}">
   <view class="text-cut padding bg-grey radius" style="width:100%" id="adr"><a url="{{cloud[index0].adr}}" >{{cloud[index0].adr}}</a></view>
+  <button bindtap="copyTBL" data-text="{{cloud[index0].adr}}" type="primary" class="copy">一键复制</button>
 </view>
 </view> 
 
@@ -75,12 +76,12 @@
       </view>
       客服
     </button>
-    <view class="action" bindtap="entShop">
-      <view class="cuIcon-cart">
+    <button class="action" id="share" open-type="share" bindtap="onShareAppMessage">
+      <view class="cuIcon-forward">
         
       </view>
-     收藏夹 
-    </view>
+     分享 
+    </button>
     <view class="bg-orange submit" bindtap="addcol">加入收藏夹</view>
     <view class="bg-red submit" bindtap="getAdr">获取下载地址</view>
   </view>

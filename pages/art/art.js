@@ -1,9 +1,13 @@
 const app = getApp();
 const DB = wx.cloud.database().collection("list");
+var util = require('../../utils/util.js');
 let index0=0;
 let cloud=[];
 let zan;
 let col;
+let lock=false;
+let lockcol=false;
+let show=false;
 Page({
 
   /**
@@ -74,6 +78,27 @@ Page({
       index0:index0,
       array:array
     })
+
+    show = wx.getStorageSync('share');
+    if (show) {
+      console.log(show.share);
+    }
+    else {
+      wx.cloud.callFunction({
+        name: 'getArray',
+        success(res) {
+          console.log("修改成功1", res.result.data[0]);
+          show=res.result.data[0].share;
+          wx.setStorageSync('share', res.result.data[0]);
+          
+        },
+        fail(res) {
+          console.log("获取失败1", res);
+        }
+      })
+
+    }
+    
   },
   previewImg: function (e) {
     console.log(e.currentTarget.dataset.index);
@@ -89,233 +114,259 @@ Page({
     })
   },
   addcol(e) {
-    var index = index0;
-    var that = this;
-    var wuid = that.data.cloud[index]._id;
-    var id = 0;
-    col = that.data.cloud[index].col;
-    const db = wx.cloud.database().collection("col");
-    db.where({
-      wuid: wuid,
-      userid: app.globalData.oppenid
-    }).get({
-      success(res) {
-        console.log(index, res, wuid, app.globalData.oppenid);
-        if (res.data.length == 0) {
-          wx.showToast({
-            title: '收藏成功',
+    if (app.globalData.userInfo.length == 0 || app.globalData.oppenid == '') {
+      wx.showModal({
+        title: '登录提醒',
+        content: '在登录小程序后才能进行点赞和收藏',
+        showCancel: false,
+        success(res) {
+          wx.switchTab({
+            url: '../my/my',
+
           })
-          that.data.cloud[index].col = that.data.cloud[index].col + 1;
-          var datacloud = that.data.cloud;
-          that.setData({
-            cloud: datacloud
-          })
-          wx.cloud.callFunction({
-            name: 'addcol',
-            data: {
-              wuid: wuid,
-              userid: app.globalData.oppenid,
-              time: util.formatTime(new Date()),
-            },
-            success(res) {
-              console.log("添加成功", res.result);
+        },
+        fail(res) {
+
+        }
+      })
+    }
+    else {
+      if(lockcol==false){
+        lockcol=true;
+        var index = index0;
+        var that = this;
+        var wuid = that.data.cloud[index]._id;
+        var id = 0;
+        col = that.data.cloud[index].col;
+        const db = wx.cloud.database().collection("col");
+        db.where({
+          wuid: wuid,
+          userid: app.globalData.oppenid
+        }).get({
+          success(res) {
+            
+            if (res.data.length == 0) {
+              wx.showToast({
+                title: '收藏成功',
+              })
+              that.data.cloud[index].col = that.data.cloud[index].col + 1;
+              var datacloud = that.data.cloud;
+              that.setData({
+                cloud: datacloud
+              })
               wx.cloud.callFunction({
-                name: 'upcol',
+                name: 'addcol',
                 data: {
-                  id: that.data.cloud[index]._id,
-                  col: that.data.cloud[index].col
+                  wuid: wuid,
+                  userid: app.globalData.oppenid,
+                  time: util.formatTime(new Date()),
                 },
                 success(res) {
-                  console.log("修改成功", res.result);
-                  DB.get({
+                  console.log("添加成功", res.result);
+                  wx.cloud.callFunction({
+                    name: 'upcol',
+                    data: {
+                      id: that.data.cloud[index]._id,
+                      col: that.data.cloud[index].col
+                    },
                     success(res) {
-                      that.setData({
-                        cloud: res.data
-                      })
+                      console.log("修改成功", res.result);
+                      lockcol=false;
                     },
                     fail(res) {
-                      console.log("获取失败", res);
+                      console.log("修改失败", res.result);
                     }
                   })
                 },
                 fail(res) {
-                  console.log("修改失败", res.result);
+                  console.log("添加失败", res.result);
                 }
               })
-            },
-            fail(res) {
-              console.log("添加失败", res.result);
             }
-          })
-        }
-        else {
-          wx.showToast({
-            title: '取消成功',
-          })
-          that.data.cloud[index].col = that.data.cloud[index].col - 1;
-          var datacloud = that.data.cloud;
-          that.setData({
-            cloud: datacloud
-          })
-          id = res.data[0]._id;
-          wx.cloud.callFunction({
-            name: 'delcol',
-            data: {
-              id: id
-            },
-            success(res) {
-              console.log("删除成功", res.result);
+            else {
+              wx.showToast({
+                title: '取消成功',
+              })
+              that.data.cloud[index].col = that.data.cloud[index].col - 1;
+              var datacloud = that.data.cloud;
+              that.setData({
+                cloud: datacloud
+              })
+              id = res.data[0]._id;
               wx.cloud.callFunction({
-                name: 'upcol',
+                name: 'delcol',
                 data: {
-                  id: that.data.cloud[index]._id,
-                  col: that.data.cloud[index].col,
+                  id: id
                 },
                 success(res) {
-                  console.log("修改成功", res.result);
-                  DB.get({
+                  console.log("删除成功", res.result);
+                  wx.cloud.callFunction({
+                    name: 'upcol',
+                    data: {
+                      id: that.data.cloud[index]._id,
+                      col: that.data.cloud[index].col,
+                    },
                     success(res) {
-                      that.setData({
-                        cloud: res.data
-                      })
+                      console.log("修改成功", res.result);
+                      lockcol = false;
                     },
                     fail(res) {
-                      console.log("获取失败", res);
+                      console.log("修改失败", res.result);
                     }
                   })
                 },
                 fail(res) {
-                  console.log("修改失败", res.result);
+                  console.log("删除失败", res.result);
                 }
               })
-            },
-            fail(res) {
-              console.log("删除失败", res.result);
             }
-          })
-        }
-      },
-      fail(res) {
-        console.log("更新失败", res);
+          },
+          fail(res) {
+            console.log("更新失败", res);
+          }
+        })
       }
-    })
+    }
   },
   addzan(e) {
-    var index = index0;
-    var that = this;
-    var wuid = that.data.cloud[index0]._id;
-    var id = 0;
-    zan = that.data.cloud[index0].zan;
-    const db = wx.cloud.database().collection("zan");
-    db.where({
-      wuid: wuid,
-      userid: app.globalData.oppenid
-    }).get({
-      success(res) {
-        if (res.data.length == 0) {
-          wx.showToast({
-            title: '点赞成功',
+    if (app.globalData.userInfo.length == 0 || app.globalData.oppenid == '') {
+      wx.showModal({
+        title: '登录提醒',
+        content: '在登录小程序后才能进行点赞和收藏',
+        showCancel: false,
+        success(res) {
+          wx.switchTab({
+            url: '../my/my',
+
           })
-          that.data.cloud[index0].zan = that.data.cloud[index0].zan + 1;
-          var datacloud = that.data.cloud;
-          that.setData({
-            cloud: datacloud
-          })
-          wx.cloud.callFunction({
-            name: 'addzan',
-            data: {
-              wuid: wuid,
-              userid: app.globalData.oppenid,
-              time: util.formatTime(new Date()),
-            },
-            success(res) {
-              console.log("添加成功", res.result);
-              wx.cloud.callFunction({
-                name: 'upzan',
-                data: {
-                  id: that.data.cloud[index]._id,
-                  zan: that.data.cloud[index].zan 
-                },
-                success(res) {
-                  console.log("修改成功", res.result);
-                  DB.get({
-                    success(res) {
-                      that.setData({
-                        cloud: res.data
-                      })
-                    },
-                    fail(res) {
-                      console.log("获取失败", res);
-                    }
-                  })
-                },
-                fail(res) {
-                  console.log("修改失败", res.result);
-                }
-              })
-            },
-            fail(res) {
-              console.log("添加失败", res.result);
-            }
-          })
+        },
+        fail(res) {
+
         }
-        else {
-          that.data.cloud[index0].zan = that.data.cloud[index0].zan - 1;
-          var datacloud = that.data.cloud;
-          that.setData({
-            cloud: datacloud
-          })
-          id = res.data[0]._id;
-          wx.cloud.callFunction({
-            name: 'delzan',
-            data: {
-              id: id
-            },
-            success(res) {
-              console.log("删除成功", res.result);
-              wx.cloud.callFunction({
-                name: 'upzan',
-                data: {
-                  id: that.data.cloud[index]._id,
-                  zan: that.data.cloud[index].zan 
-                },
-                success(res) {
-                  console.log("修改成功", res.result);
-                  DB.get({
-                    success(res) {
-                      that.setData({
-                        cloud: res.data
-                      })
-                    },
-                    fail(res) {
-                      console.log("获取失败", res);
-                    }
-                  })
-                },
-                fail(res) {
-                  console.log("修改失败", res.result);
-                }
-              })
-            },
-            fail(res) {
-              console.log("删除失败", res.result);
-            }
-          })
-        }
-      },
-      fail(res) {
-        console.log("更新失败", res);
-      }
-    })
-    var anmiaton = e.currentTarget.dataset.class;
-    that.setData({
-      animation: anmiaton
-    })
-    setTimeout(function () {
-      that.setData({
-        animation: ''
       })
-    }, 1000)
+    }
+    else {
+      var that = this;
+      if(lock==false){
+        lock=true;
+        var index = index0;
+        var that = this;
+        var wuid = that.data.cloud[index0]._id;
+        var id = 0;
+        zan = that.data.cloud[index0].zan;
+        const db = wx.cloud.database().collection("zan");
+        db.where({
+          wuid: wuid,
+          userid: app.globalData.oppenid
+        }).get({
+          success(res) {
+            if (res.data.length == 0) {
+              wx.showToast({
+                title: '点赞成功',
+              })
+              that.data.cloud[index0].zan = that.data.cloud[index0].zan + 1;
+              var datacloud = that.data.cloud;
+              that.setData({
+                cloud: datacloud
+              })
+              wx.cloud.callFunction({
+                name: 'addzan',
+                data: {
+                  wuid: wuid,
+                  userid: app.globalData.oppenid,
+                  time: util.formatTime(new Date()),
+                },
+                success(res) {
+                  console.log("添加成功", res.result);
+                  wx.cloud.callFunction({
+                    name: 'upzan',
+                    data: {
+                      id: that.data.cloud[index]._id,
+                      zan: that.data.cloud[index].zan 
+                    },
+                    success(res) {
+                      console.log("修改成功", res.result);
+                      lock = false;
+                    },
+                    fail(res) {
+                      console.log("修改失败", res.result);
+                    }
+                  })
+                },
+                fail(res) {
+                  console.log("添加失败", res.result);
+                }
+              })
+            }
+            else {
+              that.data.cloud[index0].zan = that.data.cloud[index0].zan - 1;
+              var datacloud = that.data.cloud;
+              that.setData({
+                cloud: datacloud
+              })
+              id = res.data[0]._id;
+              wx.cloud.callFunction({
+                name: 'delzan',
+                data: {
+                  id: id
+                },
+                success(res) {
+                  console.log("删除成功", res.result);
+                  wx.showToast({
+                    title: '取消成功',
+                  })
+                  wx.cloud.callFunction({
+                    name: 'upzan',
+                    data: {
+                      id: that.data.cloud[index]._id,
+                      zan: that.data.cloud[index].zan 
+                    },
+                    success(res) {
+                      console.log("修改成功", res.result);
+                      lock = false;
+                    },
+                    fail(res) {
+                      console.log("修改失败", res.result);
+                    }
+                  })
+                },
+                fail(res) {
+                  console.log("删除失败", res.result);
+                }
+              })
+            }
+          },
+          fail(res) {
+            console.log("更新失败", res);
+          }
+        })
+      }
+    }
+      var anmiaton = e.currentTarget.dataset.class;
+      var that=this;
+      that.setData({
+        animation: anmiaton
+      })
+      setTimeout(function () {
+        that.setData({
+          animation: ''
+        })
+      }, 1000)
+
+  },
+  copyTBL: function (e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.text,
+      success: function (res) {
+        wx.getClipboardData({
+          success: function (res) {
+            wx.showToast({
+              title: '复制成功'
+            })
+          }
+        })
+      }
+      })
   },
   enterArt: function (e) {
     var index;
@@ -337,12 +388,49 @@ Page({
     })
   },
   getAdr:function(){
-    this.setData({
-     iflink:true
-    })
-  },
-  addCol:function(){
-    
+    var that=this;
+    if (app.globalData.userInfo.length == 0 || app.globalData.oppenid == '') {
+      wx.showModal({
+        title: '登录提醒',
+        content: '在登录小程序后才能获取下载地址',
+        showCancel: false,
+        success(res) {
+          wx.switchTab({
+            url: '../my/my',
+
+          })
+        },
+        fail(res) {
+
+        }
+      })
+    }
+    else {
+      if(show==true){
+        wx.showModal({
+          title: '帮一下亲',
+          content: '点击左下角分享,分享给任意用户或群聊后显示下载地址,谢谢啦',
+          success(res) {
+            if (res.confirm) {
+            }
+
+          },
+          fail(res) {
+
+          }
+        })
+      }
+      else{
+        that.setData({
+          iflink: true
+        })
+          
+        
+       
+      }
+      
+      
+    }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -390,6 +478,23 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    var that=this;
+    var title=that.data.cloud[that.data.index0].title;
+    var pic = that.data.cloud[that.data.index0].p1;
+    
+    that.setData({
+        iflink: true
+      })
+    
+    
+    return {
+      title: title,
+      path: "pages/home/home",
+      imageUrl: pic,
+      
+    }
+    
+    
   }
+  
 })

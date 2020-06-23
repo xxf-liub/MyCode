@@ -2348,6 +2348,8 @@ button.icon.lg {
 	color: #888;
 	height: 4.8em;
 	overflow: hidden;
+  max-width: 170px!important;
+
 }
 
 /* ==================
