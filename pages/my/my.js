@@ -7,7 +7,9 @@ Page({
   data: {
     userInfo: {},
     userif:false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    pic:"",
+    about:""
   },
 
   /**
@@ -15,6 +17,20 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+    wx.cloud.callFunction({
+      name: 'getAbout',
+      success(res) {
+        
+        that.setData({
+          pic: res.result.data[0].pic,
+          about: res.result.data[0].about,
+        })
+        
+      },
+      fail(res) {
+        
+      }
+    })
     wx.getSetting({
       success: function (res) {
         if (res.authSetting['scope.userInfo']) {
@@ -49,20 +65,13 @@ Page({
     console.log('2')
   },
   about: function (){
-    wx.cloud.callFunction({
-      name: 'getAbout',
-      success(res) {
-        
+    var that=this;
         wx.showModal({
           title: '关于我们',
-          content: res.result.data[0].about,
+          content: that.data.about,
         })
         
-      },
-      fail(res) {
-        
-      }
-    })
+      
     
     
 },
@@ -171,7 +180,7 @@ Page({
   ,
   enterAdmin(){
     if (app.globalData.oppenid == 'ooxkO5JHqW5WCpmAcZgLrEWKzOKI'){
-      wx.redirectTo({
+      wx.navigateTo({
         url: '../admin/admin',
       })
     }
@@ -179,6 +188,20 @@ Page({
       wx.showModal({
         title: '权限验证',
         content: '当前用户并未获取权限，请联系管理员获取权限',
+      })
+    }
+    
+  },
+  enterCol(){
+    if (app.globalData.oppenid == 'ooxkO5JHqW5WCpmAcZgLrEWKzOKI'){
+      wx.navigateTo({
+        url: '../shop/shop',
+      })
+    }
+    else{
+      wx.showModal({
+        title: '未登录',
+        content: '登录后获取收藏权限',
       })
     }
     

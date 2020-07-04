@@ -1,0 +1,14 @@
+<swiper class="screen-swiper round-dot tutu" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{pic}}" wx:key>
+    <image class="swpic" src="{{item}}" mode='aspectFill'></image>
+  </swiper-item>
+</swiper>
+<view class="box">
+<view class="left">
+  <button  class="share" open-type="share" ><image src="{{left}}"></image></button>
+</view>
+<view class="right">
+  <view class="right1"><image src="{{right1}}"></image></view>
+  <view class="right2"><button open-type="contact" class="kefu"><image src="{{right2}}"></image></button></view>
+  </view>
+   </view>

@@ -30,7 +30,7 @@
         </view>
       </view>
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
-  <swiper-item wx:for="{{[0,1,2,3,4]}}" >
+  <swiper-item wx:for="{{[0,1,2]}}" >
       <view class="cu-card article" id="mok">
     <view class="cu-item shadow" id="mok-box" >
   <view class="title" bindtap="enterArt" data-id="{{index}}">

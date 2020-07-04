@@ -4,6 +4,7 @@
 .weui-search-bar {
   position: relative;
   padding: 8px 10px;
+  padding-bottom: 5px;
   display: -webkit-box;
   display: -webkit-flex;
   display: flex;
@@ -73,7 +74,9 @@
   display: flex;
   flex-direction: row;
   justify-content:center;
- 
+ background-color:var(--white);
+ padding: 6px;
+ margin-bottom: 5rpx;
 }
 .mod{
   display: inline-block;
@@ -86,8 +89,8 @@
 }
 .pic{
   display: block;
-  width: 43px;
-  height: 43px;
+  width: 35px;
+  height: 35px;
   border-radius: 5px;
   margin: 1px auto;
   margin-bottom: 0px;
@@ -95,8 +98,29 @@
 }
 .text{
   margin-top: 0px;
-  padding:1px  3px;
+  padding:1px  5px;
   text-align: center;
+  font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        
+        rgb(79, 74, 76),
+        rgb(102, 100, 100),
+        rgb(147, 60, 26),
+        rgba(255, 166, 0, 0.762),
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 250s linear infinite;
 }
 .cont{
   display: flex;
@@ -104,7 +128,8 @@
   white-space: wrap;
   justify-content:center;
   align-items:center;
-  padding:5px;
+
+  
 }
 .title{
  overflow-x: hidden;
@@ -112,15 +137,18 @@
 }
 .title image{
   display: block;
-  width:150px!important;
+  border-radius: 10px 10px 0px 0px;
+  width:100%!important;
   height:110px;
   max-width: none;
-  margin: 1px auto;
- 
+  margin: 0px auto;
+ padding: 0px;
 }
 .myc{
   display: inline-block;
   width:50%;
+  margin-left: 0px;
+  margin-right: 0px;
   margin-top: 5px;
   margin-bottom: 8px;
   padding-left: 5px;
@@ -128,17 +156,16 @@
  
 }
 .myshow{
-   padding-left: 5px;
-  padding-right: 5px;
+   padding: 0px;
    background-color: white;
 }
 .mytext{
   word-wrap: break-word; word-break: normal;
   font-weight: bold;
-  margin-top: 5px;
-  padding: 3px;
-  min-height: 35rpx;
-  max-height: 73rpx;
+  margin-top: 2px;
+  padding: 2px 8px;
+  line-height: 36rpx;
+  height: 77rpx;
   min-width: 133px;
   overflow: hidden;
 }
@@ -147,12 +174,12 @@
   flex-direction: row;
   justify-content: center;
    align-items:center;
-   margin-top: 8px;
-   margin-bottom: 5px;
+   margin-top: 2px;
+   margin-bottom: 0px;
 }
 .round{
   font-size: 9px!important;
-  margin-right: 0px;
+  margin-right: 0px !important;
   padding: 8px!important;
   line-height: 13px;
 }
@@ -169,7 +196,7 @@
 }
 #mok-box{
   border: 1px solid  rgba(0, 0, 0, 0.15);
-  border-radius: 5px;
+  border-radius: 10px;
 }
 #sh{
   color: gray;
@@ -180,6 +207,7 @@
   background-color: white;
   padding: 0px;
   border: none;
+  max-width: 70px;
 }
 #zan{
   color: gray
@@ -203,7 +231,58 @@ image[class*="gif-"] {
   font-size: 13px;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
+  padding-bottom: 12px;
   
+        font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 150s linear infinite;
+}
+@keyframes sliding{
+  to{
+      background-position:  -2000vw;
+  }
+}
+.jx{
+  padding:0px;
+  font-size: 36rpx;
+  font-family: fantasy;
+  font-weight: bold;
+  color: white;
+  background-image: linear-gradient(
+      to right,
+  orangered,
+  orange,
+  gold,
+  lightgreen,
+  cyan,
+  dodgerblue,
+  mediumpurple,
+  hotpink,
+  orangered
+
+  ); 
+  /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+  background-size: 110vw;
+ -webkit-background-clip: text;
+ color: transparent;
+  animation: sliding 150s linear infinite;
 }
 .mimg{
   display: block;
@@ -215,6 +294,10 @@ image[class*="gif-"] {
 .index-sw {
   min-height: none;
   height:123px;
+  width: 97%;
+  border-radius: 15px;
+  margin:2px auto;
+  background-color: white;
   
 }
 .index-sw swiper-item{
@@ -225,10 +308,12 @@ image[class*="gif-"] {
 .index-img{
   height: 123px;
   width: 100%;
+  border-radius: 15px;
 }
 .cu-bar{
-  margin-top: 10rpx;
-  min-height: 90rpx;
+  margin-top: 0rpx;
+  min-height: 100rpx;
+  margin-bottom: 5px;
 }
 .hotSearch{
   display: flex;

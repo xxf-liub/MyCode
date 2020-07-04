@@ -44,7 +44,6 @@ Page({
         key:key
       },
       success(res) {
-        console.log("修改成功", res.result.data);
         that.setData({
           cloud: res.result.data
         })
@@ -75,7 +74,6 @@ Page({
           })
         }
         else {
-          console.log("修改成功", res.result.data);
           var originArticles = that.data.cloud;
           var newArticles = originArticles.concat(res.result.data);
           that.setData({

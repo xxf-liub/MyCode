@@ -53,6 +53,7 @@ swiper-item{
 .copy{
   margin-top: 7rpx;
   padding: 5rpx;
+  border-radius: 8px;
 }
 .action{
   background: none;

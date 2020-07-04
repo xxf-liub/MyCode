@@ -1,9 +1,4 @@
-.userinfo-avatar {
-  width: 100rpx;
-  height: 100rpx;
-  margin: 20rpx;
-  border-radius: 50%;
-}
+
 .sha{
 width: 100%;
 padding: 0 30rpx;
@@ -19,6 +14,7 @@ border-bottom: 1rpx solid #ddd;
   height: 90rpx;
   font-size: 14px;
   background-color: var(--white);
+  background: none;
  justify-content: space-between;
  align-items: center;
  text-align: left;
@@ -42,7 +38,55 @@ border-bottom: 1rpx solid #ddd;
   flex-direction: row;
   align-items: center;
 }
-.bottom{
+.margin-top{
+  margin-top: 6px;
+  width: 100%;
+}
+.body{
+  width: 96%;
+  margin:0px auto;
   
-
+}
+.head {
+  overflow: hidden;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+}
+.head image{
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  
+}
+.userinfo-nickname{
+  font-size: 19px;
+  font-weight: 700;
+  color: white;
+  position: absolute;
+  z-index:99;
+  left:20rpx;
+  top:75rpx;
+}
+.userinfo-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  position: absolute;
+  z-index:99;
+  left:450rpx;
+  top:30rpx;
+  border:1.5px solid black
+}
+.bottom{
+  position: absolute;
+  z-index:99;
+  left:10rpx;
+  top:75rpx;
+}
+.cu-list{
+  position: absolute;
+  z-index:99;
+  top:110px;
+  width: 97%;
 }

@@ -1,17 +1,21 @@
+ <view class="body">
  <view class="cu-bar bg-white solid-bottom margin-top">
-    <view class="action">
+ <view class="head">
+  <image src="{{pic}}" ></image>
+ </view>
+    <view class="action" >
     <view wx:if="{{userif}}" class="tu">
+      
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       <image  class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
     </view>
-    <view wx:if="{{userif==false}}"><button class='bottom'  type="primary" open-type="getUserInfo" lang="zh_CN"   bindgetuserinfo="bindGetUserInfo">
+  <view wx:if="{{userif==false}}"><button class='bottom'  type="primary" open-type="getUserInfo" lang="zh_CN"   bindgetuserinfo="bindGetUserInfo">
     授权登录
-  </button></view>
+  </button>
+  </view>
       
-    <view class="action">
-      
-    </view>
+    
   </view>
   <view class="cu-list menu {{menuBorder?'sm-border':''}} {{menuCard?'card-menu margin-top':''}}" >
     <view class="cu-item {{menuArrow?'arrow':''}}" bindtap="onShareAppMessage" class="sha">
@@ -36,6 +40,12 @@
         <text class="text-grey">管理后台</text>
       </view>
     </view>
+    <view class="cu-item {{menuArrow?'arrow':''}}">
+      <view class="content" bindtap="enterCol">
+        <text class="cuIcon-favorfill text-blue"></text>
+        <text class="text-grey">我的收藏</text>
+      </view>
+    </view>
     <view class="cu-item {{menuArrow?'arrow':''}}" bindtap="about">
       <view class="content">
         <text class="cuIcon-emojiflashfill text-green"></text>
@@ -45,4 +55,5 @@
         <text class="text-grey text-sm">小目标还没有实现！</text>
       </view>
     </view>
+  </view>
   </view>

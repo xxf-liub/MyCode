@@ -44,6 +44,26 @@ image[class*="gif-"] {
   font-size: 13px;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
+  font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 150s linear infinite;
   
 }
 .mimg{
@@ -65,11 +85,35 @@ image[class*="gif-"] {
   font-size: 15px;
   margin: 20px auto;
   display: block;
-  color: rgb(0, 143, 209)
+  font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 30s linear infinite;
 }
 .active{
   color: #e32e30;
 }
 .tab{
   font-weight: bold;
+}
+@keyframes sliding{
+  to{
+      background-position:  -2000vw;
+  }
 }

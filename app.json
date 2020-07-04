@@ -11,7 +11,10 @@
     "pages/hot/hot",
     "pages/code/code",
     "pages/blank/blank",
-    "pages/result/result"
+    "pages/result/result",
+    "pages/market/market",
+    "pages/square/square"
+
 
   ],
   "tabBar": {
@@ -22,15 +25,21 @@
     "list": [
       {
         "pagePath": "pages/home/home",
-        "text": "商城",
+        "text": "首页",
         "iconPath": "pages/image/1.png",
         "selectedIconPath": "pages/image/1.png"
       },
       {
-        "pagePath": "pages/shop/shop",
-        "text": "收藏夹",
-        "iconPath": "pages/image/2.png",
-        "selectedIconPath": "pages/image/3.png"
+        "pagePath": "pages/market/market",
+        "text": "商城",
+        "iconPath": "pages/image/20.png",
+        "selectedIconPath": "pages/image/20.png"
+      },
+      {
+        "pagePath": "pages/square/square",
+        "text": "广场",
+        "iconPath": "pages/image/23.png",
+        "selectedIconPath": "pages/image/23.png"
       },
       {
         "pagePath": "pages/my/my",

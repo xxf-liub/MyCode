@@ -239,7 +239,7 @@ Page({
                   time: util.formatTime(new Date()),
                 },
                 success(res) {
-                  console.log("添加成功", res.result);
+                  
                   wx.cloud.callFunction({
                     name: 'upcol',
                     data: {
@@ -247,7 +247,7 @@ Page({
                       col: that.data.cloud[index].col
                     },
                     success(res) {
-                      console.log("修改成功", res.result);
+                      
                       
                       
                       lockcol = false;
@@ -278,7 +278,7 @@ Page({
                   id: id
                 },
                 success(res) {
-                  console.log("删除成功", res.result);
+                  
                   wx.cloud.callFunction({
                     name: 'upcol',
                     data: {
@@ -286,7 +286,7 @@ Page({
                       col: that.data.cloud[index].col,
                     },
                     success(res) {
-                      console.log("修改成功", res.result);
+                      
                       
                       lockcol = false;
                     },
@@ -366,7 +366,6 @@ Page({
                       zan: that.data.cloud[index].zan
                     },
                     success(res) {
-                      console.log("修改成功", res.result);
                       
                       lock = false;
                     },
@@ -396,7 +395,7 @@ Page({
                   id: id
                 },
                 success(res) {
-                  console.log("删除成功", res.result);
+                  
                   wx.cloud.callFunction({
                     name: 'upzan',
                     data: {
@@ -404,7 +403,6 @@ Page({
                       zan: that.data.cloud[index].zan,
                     },
                     success(res) {
-                      console.log("修改成功", res.result);
                       
                       lock = false;
                     },
@@ -465,7 +463,7 @@ Page({
         wx.cloud.callFunction({
           name: 'getArray',
           success(res) {
-            console.log("修改成功1", res.result.data[0]);
+            
             if (res.result.data[0].vis==true){
               var array=[];
               array[0] = res.result.data[0].p1;
@@ -499,7 +497,7 @@ Page({
         wx.cloud.callFunction({
           name: 'getSearch',
           success(res) {
-            console.log("修改成功1", res.result.data[0].data);
+            
               var search = [];
               search = res.result.data[0].data;
               that.setData({
@@ -553,7 +551,7 @@ Page({
         page:page
       },
       success(res) {
-        console.log("修改成功1", res.result.data);
+       
         that.setData({
           cloud: res.result.data
         })
@@ -584,7 +582,7 @@ Page({
           })
         }
         else{
-          console.log("修改成功2",page, res.result.data);
+          
           var originArticles = that.data.cloud;
           var newArticles = originArticles.concat(res.result.data);
           if(that.data.mif==true){
@@ -648,7 +646,7 @@ Page({
     wx.cloud.callFunction({
       name: 'getArray',
       success(res) {
-        console.log("修改成功1", res.result.data[0]);
+        
         if (res.result.data[0].vis == true) {
           var array = [];
           array[0] = res.result.data[0].p1;
@@ -672,7 +670,7 @@ Page({
     wx.cloud.callFunction({
       name: 'getSearch',
       success(res) {
-        console.log("修改成功1", res.result.data[0].data);
+        
         var search = [];
         search = res.result.data[0].data;
         that.setData({
