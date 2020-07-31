@@ -3,7 +3,7 @@
   color: black;
 }
 #ava{
-  background-color: #a3cd5e;
+  background-color: #26c2dd;
   font-size: 9px;
 }
 #tag{

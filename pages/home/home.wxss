@@ -172,10 +172,11 @@
 .box-round{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
    align-items:center;
    margin-top: 2px;
    margin-bottom: 0px;
+   overflow-x: hidden;
 }
 .round{
   font-size: 9px!important;
@@ -186,7 +187,7 @@
 .box-z{
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .z{
   margin-top: 10px;
@@ -208,6 +209,8 @@
   padding: 0px;
   border: none;
   max-width: 70px;
+  text-align: left;
+  margin-right: 10px;
 }
 #zan{
   color: gray
@@ -220,6 +223,7 @@
   background-color: white;
   padding: 0px;
   border: none;
+  margin-right: 5px;
 }
 
 image[class*="gif-"] {
@@ -230,7 +234,8 @@ image[class*="gif-"] {
   text-align: center;
   font-size: 13px;
   margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 30px;
+  height: 25px;
   padding-bottom: 12px;
   
         font-family: fantasy;
@@ -332,8 +337,37 @@ image[class*="gif-"] {
    text-align: left;
    padding-left: 35rpx;
    overflow: hidden;
-   font-size: 15px;
+   font-size: 16px;
    font-weight: bold;
+
+   font-family: fantasy;
+  font-weight: bold;
+  color: white;
+  background-image: linear-gradient(
+      to right,
+  orangered,
+  orange,
+  gold,
+  lightgreen,
+  cyan,
+  dodgerblue,
+  mediumpurple,
+  hotpink,
+  orangered
+
+  ); 
+  /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+  background-size: 110vw;
+ -webkit-background-clip: text;
+ color: transparent;
+  animation: sliding 180s linear infinite;
+
+
+}
+.sbox{
+  background-color: white;
+  border-radius: 5px;
+  padding: 5rpx 10rpx;
 }
 .searchcontext{
 letter-spacing: 1px;
@@ -376,4 +410,15 @@ letter-spacing: 1px;
 }
 .delbutton{
   background: none;
+}
+.shijian{
+  margin-left: 5px;
+  padding: 0px 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 11px;
+  width: 90%;
+}
+.cu-btn{
+  justify-content:flex-start;
+
 }

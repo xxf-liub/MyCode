@@ -115,3 +115,8 @@ overflow: hidden;
 -webkit-box-orient: vertical;    
 -webkit-line-clamp: 2;    
 }
+.cuIcon-favorfill{
+  color: gray;
+  font-size: 11px;
+  font-weight: 300;
+}

@@ -44,6 +44,12 @@ Page({
         key:key
       },
       success(res) {
+        if (res.result.data.length == 0||res.result.data.length <12) {
+          that.setData({
+            mes: '没有更多了',
+            mif:true
+          })
+        }
         that.setData({
           cloud: res.result.data
         })
@@ -67,7 +73,7 @@ Page({
         key: key
       },
       success(res) {
-        if (res.result.data.length == 0) {
+        if (res.result.data.length == 0||res.result.data.length <12) {
           that.setData({
             mes: '没有更多了',
             mif:true

@@ -26,7 +26,7 @@
       
       <view class="cu-bar bg-white margin-top" id="lab">
         <view class="action">
-          <text class="cuIcon-title text-pink"></text> 相关推荐
+          <text class="cuIcon-title text-blue"></text> 相关推荐
         </view>
       </view>
 <swiper class="screen-swiper round-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
@@ -55,7 +55,7 @@
 <view >
   <view class="cu-bar bg-white margin-top" id="lab">
           <view class="action">
-            <text class="cuIcon-title text-red"></text> 下载地址
+            <text class="cuIcon-title text-pink"></text> 下载地址
           </view>
   </view>
   <view class="padding bg-white" wx:if="{{iflink}}">

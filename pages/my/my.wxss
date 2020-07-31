@@ -90,3 +90,15 @@ border-bottom: 1rpx solid #ddd;
   top:110px;
   width: 97%;
 }
+.adv{
+  
+  width: 100%;
+  margin:0 auto;
+  padding: 5px 5px;
+  margin-top: 10px;
+}
+.swpic{
+  width: 100%;
+  margin:0 auto;
+  border-radius: 10px;
+}

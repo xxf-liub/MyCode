@@ -9,7 +9,8 @@ Page({
     userif:false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     pic:"",
-    about:""
+    about:"",
+    adv:[]
   },
 
   /**
@@ -24,6 +25,7 @@ Page({
         that.setData({
           pic: res.result.data[0].pic,
           about: res.result.data[0].about,
+          adv:res.result.data[0].adv
         })
         
       },

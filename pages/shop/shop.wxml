@@ -1,6 +1,6 @@
 <view class="cu-bar bg-white solid-bottom margin-top" id="ti">
   <view class='action'>
-    <text class='cuIcon-titles text-orange ' ></text> 我的收藏
+    <text class='cuIcon-titles text-blue ' ></text> 我的收藏
   </view>
 </view>
 
@@ -27,8 +27,8 @@
                 <view class="text-content" data-id="{{index}}"> {{item.data[0].about}}</view>
                 <view>
                   <view class="cu-capsule radius">
-        <view class="cu-tag bg-cyan">{{item.data[0].type}}</view>
-        <view class="cu-tag line-cyan">{{item.data[0].region}}</view>
+        
+        <view class="cu-tag bg-blue light sm round">{{item.data[0].region}}</view>
       </view>
                 </view>
               </view>

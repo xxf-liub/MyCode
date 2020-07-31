@@ -43,7 +43,8 @@ image[class*="gif-"] {
   text-align: center;
   font-size: 13px;
   margin-top: 20rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 30px;
+  height: 25px;
   font-family: fantasy;
         font-weight: bold;
         color: white;

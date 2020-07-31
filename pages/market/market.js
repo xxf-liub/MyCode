@@ -40,6 +40,8 @@ Page({
     var list=that.data.list;
     var i=0;
     var cloud=[];
+    var flag=true;
+    var data=[];
     for(i=0;i<list.length;i++){
       var key=list[i].name;
       wx.cloud.callFunction({
@@ -51,10 +53,28 @@ Page({
           var obj=res.result.data;
           cloud.push(obj);
           if(cloud.length==list.length){
+            var j=0,x=0;
+            for(x=0;x<cloud.length;x++){
+              for(j=0;j<cloud.length;j++){
+                flag=true;
+                var cname=cloud[j];
+                var y=0;
+                for(y=0;y<cname.length;y++){
+                  //console.log(cname[y].title);
+                  if(cname[y].title.indexOf(list[x].name)==-1){
+                      flag=false;
+                      break;
+                  }
+                }
+                if(flag==true){
+                  data.push(cloud[j]);
+                }
+              }
+            }
             that.setData({
-              cloud:cloud
+              cloud:data
             })
-            
+            console.log("cg", data);
           }
         },
         fail(res) {
