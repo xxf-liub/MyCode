@@ -157,8 +157,25 @@ Page({
   enterArt:function(e){
     var index = e.currentTarget.dataset.id;
     var that=this;
+    
+    wx.cloud.callFunction({
+      name: 'upzan',
+      data: {
+        id:that.data.cloud[index]._id,
+        zan: that.data.cloud[index].zan+1
+      },
+      success(res) {
+        that.data.cloud[index].zan=that.data.cloud[index].zan+1;
+        that.setData({
+          cloud:that.data.cloud
+        })
+      },
+      fail(res) {
+        
+      }
+    })
     var cloud = encodeURIComponent(JSON.stringify(that.data.cloud));
-    console.log();
+    
     wx.navigateTo({
       url: '../art/art?index=' + index + '&cloud=' + cloud,
       success(res){
@@ -191,7 +208,7 @@ Page({
     })
     wx.setStorageSync('record', record);
   },
-  addcol(e){
+  /*addcol(e){
     if (app.globalData.userInfo.length == 0 || app.globalData.oppenid==''){
       wx.showModal({
         title: '登录提醒',
@@ -307,8 +324,8 @@ Page({
         })
       }
     }
-  },
-  addzan(e){
+  },*/
+  /*addzan(e){
     if (app.globalData.userInfo.length == 0 || app.globalData.oppenid == '') {
       wx.showModal({
         title: '登录提醒',
@@ -424,10 +441,8 @@ Page({
     }
     }
   
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
+  },*/
+ 
   onLoad: function (options) {
     var that = this;
     try {
@@ -443,7 +458,6 @@ Page({
       var value = wx.getStorageSync('cloud');
       if (value) {
         page = 0;
-        console.log("数据",value);
         that.setData({
           cloud: value
         })
@@ -453,7 +467,7 @@ Page({
         this.loadInitData(); 
         
       }
-      var array = wx.getStorageSync('array');
+      var array = null;
       if (array) {
         that.setData({
           array: array
@@ -463,7 +477,11 @@ Page({
         wx.cloud.callFunction({
           name: 'getArray',
           success(res) {
-            
+            if(res.result.data[0].flush==true){
+              page = 0;
+              that.loadInitData();
+              console.log("*******");
+            }
             if (res.result.data[0].vis==true){
               var array=[];
               array[0] = res.result.data[0].p1;
@@ -617,14 +635,16 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    
+    this.setData({
+      inputShowed: false
+    });
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-
+    
   },
 
   /**

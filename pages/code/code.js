@@ -119,6 +119,22 @@ Page({
   enterArt: function (e) {
     var index = e.currentTarget.dataset.id;
     var that = this;
+    wx.cloud.callFunction({
+      name: 'upzan',
+      data: {
+        id:that.data.cloud[index]._id,
+        zan: that.data.cloud[index].zan+1
+      },
+      success(res) {
+        that.data.cloud[index].zan=that.data.cloud[index].zan+1;
+        that.setData({
+          cloud:that.data.cloud
+        })
+      },
+      fail(res) {
+        
+      }
+    })
     var cloud = encodeURIComponent(JSON.stringify(that.data.cloud));
     console.log();
     wx.navigateTo({

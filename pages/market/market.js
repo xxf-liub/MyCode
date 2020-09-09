@@ -119,6 +119,23 @@ Page({
         break;
       }
     }
+    console.log(that.data.cloud[index][id]);
+    wx.cloud.callFunction({
+      name: 'upzan',
+      data: {
+        id:that.data.cloud[index][id]._id,
+        zan: that.data.cloud[index][id].zan+1
+      },
+      success(res) {
+        that.data.cloud[index][id].zan=that.data.cloud[index][id].zan+1;
+        that.setData({
+          cloud:that.data.cloud
+        })
+      },
+      fail(res) {
+        
+      }
+    })
     var cloud = encodeURIComponent(JSON.stringify(that.data.cloud[index]));
     
     wx.navigateTo({

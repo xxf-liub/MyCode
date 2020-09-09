@@ -1,4 +1,5 @@
 const app = getApp()
+let adm=[];
 Page({
 
   /**
@@ -18,10 +19,13 @@ Page({
    */
   onLoad: function (options) {
     var that=this;
+    
+   
     wx.cloud.callFunction({
       name: 'getAbout',
       success(res) {
-        
+        adm=res.result.data[0].adm;
+        console.log(adm[0]);
         that.setData({
           pic: res.result.data[0].pic,
           about: res.result.data[0].about,
@@ -61,10 +65,7 @@ Page({
       }
     })
     
-    console.log('1');
-    console.log(app.globalData.userInfo);
-    console.log(app.globalData.oppenid);
-    console.log('2')
+   
   },
   about: function (){
     var that=this;
@@ -181,11 +182,14 @@ Page({
   }
   ,
   enterAdmin(){
-    if (app.globalData.oppenid == 'ooxkO5JHqW5WCpmAcZgLrEWKzOKI'){
-      wx.navigateTo({
-        url: '../admin/admin',
-      })
-    }
+   
+    if (app.globalData.oppenid == "ooxkO5JHqW5WCpmAcZgLrEWKzOKI"){
+        wx.navigateTo({
+          url: '../admin/admin',
+        })
+      }
+    
+    
     else{
       wx.showModal({
         title: '权限验证',
@@ -195,15 +199,16 @@ Page({
     
   },
   enterCol(){
-    if (app.globalData.oppenid == 'ooxkO5JHqW5WCpmAcZgLrEWKzOKI'){
-      wx.navigateTo({
-        url: '../shop/shop',
-      })
-    }
-    else{
+    if (app.globalData.userInfo.length == 0 || app.globalData.oppenid == '') {
       wx.showModal({
         title: '未登录',
         content: '登录后获取收藏权限',
+      })
+    }
+    else{
+      
+      wx.navigateTo({
+        url: '../shop/shop',
       })
     }
     

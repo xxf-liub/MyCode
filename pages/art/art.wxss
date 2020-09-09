@@ -1,10 +1,14 @@
 #title{
   font-weight: bold;
   color: black;
+  padding-top: 15px;
 }
 #ava{
-  background-color: #26c2dd;
-  font-size: 9px;
+  font-size: 11px;
+  position: absolute;
+  left: 12rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
 }
 #tag{
   position:absolute; 
@@ -12,9 +16,11 @@
   padding: 3px;
   border-radius: 2px;
 }
+
 .about{
-  margin: 5px;
+  margin: 8px;
   padding: 5px;
+  padding-top: 8px;
 }
 #lab{
   padding-bottom: 1px!important;
@@ -32,10 +38,13 @@ swiper-item{
   border: none;
 }
 #zan{
-  color: gray
+  color: gray;
+  vertical-align:middle;
 }
 .zan{
-  color: gray
+  color: gray;
+  vertical-align:middle;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 #zan0{
   margin: 0px;

@@ -18,12 +18,11 @@
           <image src="{{item.p1[0]}}" mode="aspectFill" bindtap="enterArt" data-id="{{index}}"></image>
           <view class="desc">
             <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{item.about}}</view>
-            <view>
+            <view class="box-round">
               <view class="cu-tag bg-blue light sm round">{{item.region}}</view>
-                  
-                
-      <text class="cu-btn bg animation margin-sm basis-sm shadow" bindtap="addcol"  id="sh0" data-id="{{index}}" ><text class="cuIcon-favorfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.col}}</text></text>
-        <text class="cu-btn bg animation margin-sm basis-sm shadow" bindtap="addzan"  id="zan0" data-id="{{index}}" ><text class="cuIcon-appreciatefill margin-lr-xs"  id="zan" ></text> <text class="zan">{{item.zan}}</text></text>
+              <view class="box-z">        
+                    <text class="cu-btn bg animation  shadow z" id="sh0" data-id="{{index}}" ><text class="cuIcon-attentionfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.zan}}</text></text>
+              </view>
             </view>
           </view>
         </view>

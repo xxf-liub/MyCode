@@ -83,7 +83,7 @@
   <view class="box-round">
               <view class="shijian">{{tools.sub(item.time,10)}}</view>
               <view class="box-z">
-                <text class="cu-btn bg animation margin-sm basis-sm shadow z" bindtap="addcol"  id="sh0" data-id="{{index}}" ><text class="cuIcon-favorfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.col}}</text></text>
+                <text class="cu-btn bg animation  shadow z"   id="sh0" data-id="{{index}}" ><text class="cuIcon-attentionfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.zan}}</text></text>
                
               </view>
   </view>   

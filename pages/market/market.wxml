@@ -26,7 +26,7 @@
             </view>
             <view class="action">
               <view class="text-grey text-xs">{{cdata.time}}</view>
-              <view class="cuIcon-favorfill margin-lr-xs">{{cdata.col}}</view>
+              <view class="cuIcon-attentionfill margin-lr-xs text-grey">{{cdata.zan}}</view>
             </view>
         
         </view>

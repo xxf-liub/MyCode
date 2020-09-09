@@ -202,6 +202,8 @@
 #sh{
   color: gray;
   margin-left: 35rpx!important;
+  vertical-align: middle;
+  font-size: 12px;
 }
 #sh0{
   margin: 0px;
@@ -216,8 +218,14 @@
   color: gray
 }
 .zan{
-  color: gray
+  color: gray;
+  vertical-align:middle;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
 }
+
+
+
 #zan0{
   margin: 0px;
   background-color: white;

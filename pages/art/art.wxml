@@ -10,14 +10,14 @@
 </swiper>
     <view class="cu-list menu-avatar">
       <view class="cu-item">
-           <view class="cu-avatar round lg" id="ava">{{cloud[index0].region}}</view>
+      
+           <view  class="cu-tag bg-blue light sm round" id="ava">{{cloud[index0].region}}</view>
         <view class="content flex-sub">
           <view class="text-grey" id="title">{{cloud[index0].title}}</view>
           <view class="text-gray text-sm flex justify-between">
             {{cloud[index0].time}}
             <view class="text-gray text-sm">
-              <text class="cu-btn bg animation-{{animation==list[3].name?list[3].name:''}}" bindtap="addcol"  id="sh0" data-id="{{index}}" data-class="{{list[3].name}}" data-id="{{index}}"><text class="cuIcon-favorfill margin-lr-xs" id="sh"></text> <text class="zan">{{cloud[index0].col}}</text></text>
-              <text class="cu-btn bg animation-{{animation==list[2].name?list[2].name:''}} margin-sm basis-sm shadow" bindtap="addzan" data-class="{{list[2].name}}" id="zan0" data-id="{{index}}" ><text class="cuIcon-appreciatefill margin-lr-xs"  id="zan" ></text> <text class="zan">{{cloud[index0].zan}}</text></text>
+              <text class="cu-btn bg animation-{{animation==list[2].name?list[2].name:''}} margin-sm basis-sm shadow" bindtap="addzan" data-class="{{list[2].name}}" id="zan0" data-id="{{index}}" ><text class="cuIcon-attentionfill margin-lr-xs"  id="zan" ></text> <text class="zan">{{cloud[index0].zan+1}}</text></text>
             </view>
           </view>
         </view>
@@ -41,8 +41,7 @@
       <view class="desc">
         <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{array[index].about}}</view>
         <view>
-          <view class="cu-tag bg-red light sm round">{{array[index].type}}</view>
-          <view class="cu-tag bg-green light sm round">{{array[index].region}}</view>
+          <view class="cu-tag bg-blue light sm round">{{array[index].region}}</view>
              
         </view>
       </view>

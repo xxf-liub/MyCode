@@ -33,8 +33,7 @@
       
       
     </view>
-    
-    <view class="cu-item {{menuArrow?'arrow':''}}">
+    <view  wx:if="{{false}}" class="cu-item {{menuArrow?'arrow':''}}">
       <view class="content" bindtap="enterAdmin">
         <text class="cuIcon-tagfill text-red"></text>
         <text class="text-grey">管理后台</text>
