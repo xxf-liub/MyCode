@@ -30,7 +30,7 @@ Page({
       key:key
     })
     wx.setNavigationBarTitle({
-      title: '搜索结果'
+      title: '结果'
     })
     page = 0;
     this.loadInitData();

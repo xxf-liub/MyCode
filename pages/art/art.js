@@ -421,6 +421,15 @@ Page({
         })
       }
       else{
+        let query = wx.createSelectorQuery();
+    query.select('#bot').boundingClientRect();
+    // 执行查询
+    query.exec(ele => {
+      let e = ele[0];
+      wx.pageScrollTo({
+        scrollTop: e.top,
+      });
+    })
         that.setData({
           iflink: true
         })

@@ -51,7 +51,7 @@
   </swiper-item>
 </swiper>
 
-<view >
+<view class="ds">
   <view class="cu-bar bg-white margin-top" id="lab">
           <view class="action">
             <text class="cuIcon-title text-pink"></text> 下载地址
@@ -81,6 +81,6 @@
       </view>
      分享 
     </button>
-    <view class="bg-orange submit" bindtap="addcol">加入收藏夹</view>
+    <view class="bg-orange submit " id="bot" bindtap="addcol">加入收藏夹</view>
     <view class="bg-red submit" bindtap="getAdr">获取下载地址</view>
   </view>

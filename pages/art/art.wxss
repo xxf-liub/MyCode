@@ -21,9 +21,25 @@
   margin: 8px;
   padding: 5px;
   padding-top: 8px;
+  text-indent: 20rpx;
+
+  text-align: left;
 }
 #lab{
   padding-bottom: 1px!important;
+  
+}
+.ds{
+  margin-bottom: 60px;
+}
+.shop{
+  overflow:hidden;
+  margin-bottom:0;
+  background:#f0eff5;width:100%;
+  position:fixed;
+  bottom:0px;
+  display:flex;
+  justify-content:center;
 }
 swiper-item{
   padding-top: 0px!important;

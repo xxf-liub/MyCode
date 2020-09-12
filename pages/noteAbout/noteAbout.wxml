@@ -1,0 +1,15 @@
+<swiper class="screen-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500">
+  <swiper-item wx:for="{{cloud[index0].pic}}" data-id="{{index}}" bindtap="previewImg" class="sitem">
+  <view class="image">
+  </view>
+      <image class="tu" src="{{item}}" mode="aspectFill" ></image>
+  </swiper-item>
+</swiper>
+<view class="context">
+    <view class="title">{{cloud[index0].title}}</view>
+    <view class="time-view">
+      <view class="time">{{cloud[index0].time}}</view>
+      <view class="box"><text class="cuIcon-attentionfill margin-lr-xs" id="sh"></text> <view class="view">{{cloud[index0].view}}</view></view>
+    </view>
+    <view class="about">  {{cloud[index0].about}}</view>
+</view>

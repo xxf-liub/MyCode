@@ -13,7 +13,11 @@
     "pages/blank/blank",
     "pages/result/result",
     "pages/market/market",
-    "pages/square/square"
+    "pages/square/square",
+    "pages/notes/notes",
+    "pages/noteAbout/noteAbout"
+
+
 
 
   ],
@@ -36,7 +40,7 @@
         "selectedIconPath": "pages/image/20.png"
       },
       {
-        "pagePath": "pages/square/square",
+        "pagePath": "pages/notes/notes",
         "text": "广场",
         "iconPath": "pages/image/23.png",
         "selectedIconPath": "pages/image/23.png"

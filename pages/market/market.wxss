@@ -2,6 +2,7 @@
 .VerticalNav.nav {
   width: 200rpx;
   white-space: initial;
+  background-color: white;
 }
 
 .VerticalNav.nav .cu-item {
