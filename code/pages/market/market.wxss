@@ -1,0 +1,123 @@
+/* pages/component/nav/nav.wxss */
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+  background-color: white;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+.VerticalBox{
+  display: flex;
+}
+.VerticalMain{
+  background-color: #f1f1f1;
+}
+.img{
+  width: 65px;
+  height: 55px;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 5px;
+  margin-left: 2px;
+}
+.box{
+  height: 75px!important;
+  justify-content: space-between !important;
+}
+.title{
+  color: palevioletred;
+  padding-left: 5px;
+  width:126px;
+  overflow-wrap: normal;
+}
+.action{
+  width: 100%;
+}
+.more{
+  padding-left: 50rpx;
+  width: 120rpx;
+  margin-right:2px ;
+  font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 220s linear infinite;
+
+}
+@keyframes sliding{
+  to{
+      background-position:  -2000vw;
+  }
+}
+.name{
+  
+  width: 250rpx;
+  margin-left: 3px;
+  margin-right: auto;
+}
+.tutu{
+  margin-bottom: 5px!important;
+  width: 97%;
+  margin:1px auto;
+  border-radius: 20px;
+  border:1.5px black solid;
+}
+.swpic{
+  border-radius: 20px;
+}
+.cu-bar{
+  border-radius: 8px 8px 0px 0px;
+}
+.text{
+  display: -webkit-box;         
+word-break: break-all;
+text-overflow: ellipsis; 
+
+overflow: hidden;            
+-webkit-box-orient: vertical;    
+-webkit-line-clamp: 2;    
+}
+.cuIcon-favorfill{
+  color: gray;
+  font-size: 11px;
+  font-weight: 300;
+}

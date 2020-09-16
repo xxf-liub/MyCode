@@ -1,9 +1,8 @@
-
-<view class='action'>
-  <text class='resTitle' >公告</text>
-  
+<view class="cu-bar bg-white solid-bottom margin-top" id="ti">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue ' ></text> 最新上架列表
+  </view>
 </view>
-
 <view wx:if="{{loadif}}">
   <image src="../image/cube.gif" class="loadimg" mode="widthFill"></image>
   <view class="imgtext">正在加载</view>
@@ -15,14 +14,14 @@
         <view class="title" bindtap="enterArt" data-id="{{index}}">
           <view class="text-cut">{{item.title}}</view>
         </view>
-        <view class="con">
-          <image src="{{item.pic[0]}}" mode="aspectFill" bindtap="enterArt" data-id="{{index}}"></image>
-          <view class="content-text">
-            <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{item.about[0]}}</view>
+        <view class="content">
+          <image src="{{item.p1[0]}}" mode="aspectFill" bindtap="enterArt" data-id="{{index}}"></image>
+          <view class="desc">
+            <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{item.about}}</view>
             <view class="box-round">
-              <view class="time">{{item.time}}</view>
+              <view class="cu-tag bg-blue light sm round">{{item.region}}</view>
               <view class="box-z">        
-                    <text class="cu-btn bg animation  shadow z" id="sh0" data-id="{{index}}" ><text class="cuIcon-attentionfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.view}}</text></text>
+                    <text class="cu-btn bg animation  shadow z" id="sh0" data-id="{{index}}" ><text class="cuIcon-attentionfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.zan}}</text></text>
               </view>
             </view>
           </view>

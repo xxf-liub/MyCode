@@ -1,0 +1,104 @@
+
+.sha{
+width: 100%;
+padding: 0 30rpx;
+min-height: 100rpx;
+background-color: var(--white);
+justify-content: space-between;
+align-items: center;
+border-bottom: 1rpx solid #ddd;
+}
+.share{
+  position: absolute;
+  padding: 0 0rpx;
+  height: 90rpx;
+  font-size: 14px;
+  background-color: var(--white);
+  background: none;
+ justify-content: space-between;
+ align-items: center;
+ text-align: left;
+ font-weight: 500;
+
+}
+.cuIcon-service{
+   margin-right: 10rpx;
+  line-height: 100rpx;
+}
+.share text{
+  align-content: center;
+  padding-left: 10rpx;
+}
+.cuIcon-discoverfill{
+  margin-right: 10rpx;
+  line-height: 100rpx;
+}
+.tu{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.margin-top{
+  margin-top: 6px;
+  width: 100%;
+}
+.body{
+  width: 96%;
+  margin:0px auto;
+  
+}
+.head {
+  overflow: hidden;
+  position: absolute;
+  z-index: 0;
+  width: 100%;
+}
+.head image{
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+  
+}
+.userinfo-nickname{
+  font-size: 19px;
+  font-weight: 700;
+  color: white;
+  position: absolute;
+  z-index:99;
+  left:20rpx;
+  top:75rpx;
+}
+.userinfo-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  position: absolute;
+  z-index:99;
+  left:450rpx;
+  top:30rpx;
+  border:1.5px solid black
+}
+.bottom{
+  position: absolute;
+  z-index:99;
+  left:10rpx;
+  top:75rpx;
+}
+.cu-list{
+  position: absolute;
+  z-index:99;
+  top:110px;
+  width: 97%;
+}
+.adv{
+  
+  width: 100%;
+  margin:0 auto;
+  padding: 5px 5px;
+  margin-top: 10px;
+}
+.swpic{
+  width: 100%;
+  margin:0 auto;
+  border-radius: 10px;
+}

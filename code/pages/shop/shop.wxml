@@ -1,0 +1,45 @@
+<view class="cu-bar bg-white solid-bottom margin-top" id="ti">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue ' ></text> 我的收藏
+  </view>
+</view>
+
+<view wx:if="{{loadif}}">
+  <image src="../image/cube.gif" class="loadimg" mode="widthFill"></image>
+  <view class="imgtext">下拉刷新</view>
+ </view>
+<view wx:else>
+
+<view class="cu-timeline"  wx:for="{{cloud}}">
+  <view class="cu-time">{{item.time}}</view>
+  <view class="cu-item">
+    <view class="content">
+      
+      <view class="margin-top" bindtap="enterArt" data-id="{{index}}">
+          <view class="cu-card article" id="mok">
+            <view class="cu-item shadow" id="mok-box" >
+            <view class="title"  data-id="{{index}}">
+              <view class="text-cut">{{item.data[0].title}}</view>
+            </view>
+            <view class="content">
+              <image src="{{item.data[0].p1[0]}}" mode="aspectFill"  data-id="{{index}}" id="img"></image>
+              <view class="desc">
+                <view class="text-content" data-id="{{index}}"> {{item.data[0].about}}</view>
+                <view>
+                  <view class="cu-capsule radius">
+        
+        <view class="cu-tag bg-blue light sm round">{{item.data[0].region}}</view>
+      </view>
+                </view>
+              </view>
+            </view>
+            </view>
+          </view>
+      </view>
+    </view>
+  </view>
+  
+</view>
+<view class="m" wx:if="{{mif}}" bindtap="getm" >{{mes}}</view>
+<image class="mimg" wx:if="{{!mif}}" src="../image/flicker.gif" />
+</view>

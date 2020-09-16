@@ -1,0 +1,432 @@
+.line-cyan2{
+  color: palevioletred;
+}
+.weui-search-bar {
+  position: relative;
+  padding: 8px 10px;
+  padding-bottom: 5px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  background-color: #EFEFF4;
+  border-top: 1rpx solid #D7D6DC;
+  border-bottom: 1rpx solid #D7D6DC;
+}
+.weui-icon-search {
+  margin-right: 4px;
+  font-size: inherit;
+}
+.weui-icon-search_in-box {
+  position: absolute;
+  left: 10px;
+  top: 7px;
+}
+.weui-search-bar__text {
+  display: inline-block;
+  font-size: 16px;
+}
+.weui-search-bar__form {
+  position: relative;
+  -webkit-box-flex: 1;
+  -webkit-flex: auto;
+          flex: auto;
+  border-radius: 5px;
+  background: #FFFFFF;
+  border: 1rpx solid #E6E6EA;
+}
+.weui-search-bar__box {
+  position: relative;
+  padding-left: 30px;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: border-box;
+  z-index: 1;
+}
+.weui-search-bar__input {
+  height: 28px;
+  line-height: 28px;
+  font-size: 14px;
+  
+}
+.weui-search-bar__label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 10px;
+  text-align: center;
+  color: #9B9B9B;
+  background: #FFFFFF;
+  line-height: 28px;
+}
+.weui-search-bar__cancel-btn {
+  margin-left: 10px;
+  line-height: 28px;
+  color: #09BB07;
+  white-space: nowrap;
+  font-size: 14px;
+}
+
+.block{
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
+ background-color:var(--white);
+ padding: 6px;
+ margin-bottom: 5rpx;
+}
+.mod{
+  display: inline-block;
+  width: 25%;
+  margin: 2rpx 0rpx;
+  padding: 5rpx;
+  font-size: 10px;
+  font-weight: bold;
+
+}
+.pic{
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  margin: 1px auto;
+  margin-bottom: 0px;
+  padding: 1px;
+}
+.text{
+  margin-top: 0px;
+  padding:1px  5px;
+  text-align: center;
+  font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        
+        rgb(79, 74, 76),
+        rgb(102, 100, 100),
+        rgb(147, 60, 26),
+        rgba(255, 166, 0, 0.762),
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 250s linear infinite;
+}
+.cont{
+  display: flex;
+  flex-direction: row;
+  white-space: wrap;
+  justify-content:center;
+  align-items:center;
+
+  
+}
+.title{
+ overflow-x: hidden;
+ width:100%;
+}
+.title image{
+  display: block;
+  border-radius: 10px 10px 0px 0px;
+  width:100%!important;
+  height:110px;
+  max-width: none;
+  margin: 0px auto;
+ padding: 0px;
+}
+.myc{
+  display: inline-block;
+  width:50%;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+ 
+}
+.myshow{
+   padding: 0px;
+   background-color: white;
+}
+.mytext{
+  word-wrap: break-word; word-break: normal;
+  font-weight: bold;
+  margin-top: 2px;
+  padding: 2px 8px;
+  line-height: 36rpx;
+  height: 77rpx;
+  min-width: 133px;
+  overflow: hidden;
+}
+.box-round{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+   align-items:center;
+   margin-top: 2px;
+   margin-bottom: 0px;
+   overflow-x: hidden;
+}
+.round{
+  font-size: 9px!important;
+  margin-right: 0px !important;
+  padding: 8px!important;
+  line-height: 13px;
+}
+.box-z{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.z{
+  margin-top: 10px;
+  font-size: 12px;
+  margin-left: 0px;
+  padding: 4px;
+}
+#mok-box{
+  border: 1px solid  rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+}
+#sh{
+  color: gray;
+  margin-left: 35rpx!important;
+  vertical-align: middle;
+  font-size: 12px;
+}
+#sh0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+  max-width: 70px;
+  text-align: left;
+  margin-right: 10px;
+}
+#zan{
+  color: gray
+}
+.zan{
+  color: gray;
+  vertical-align:middle;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+}
+
+
+
+#zan0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+  margin-right: 5px;
+}
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+.m{
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20rpx;
+  margin-bottom: 30px;
+  height: 25px;
+  padding-bottom: 12px;
+  
+        font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 150s linear infinite;
+}
+@keyframes sliding{
+  to{
+      background-position:  -2000vw;
+  }
+}
+.jx{
+  padding:0px;
+  font-size: 36rpx;
+  font-family: fantasy;
+  font-weight: bold;
+  color: white;
+  background-image: linear-gradient(
+      to right,
+  orangered,
+  orange,
+  gold,
+  lightgreen,
+  cyan,
+  dodgerblue,
+  mediumpurple,
+  hotpink,
+  orangered
+
+  ); 
+  /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+  background-size: 110vw;
+ -webkit-background-clip: text;
+ color: transparent;
+  animation: sliding 150s linear infinite;
+}
+.mimg{
+  display: block;
+  width: 45px;
+  height:45px;
+  margin:5rpx auto;
+
+}
+.index-sw {
+  min-height: none;
+  height:123px;
+  width: 97%;
+  border-radius: 15px;
+  margin:2px auto;
+  background-color: white;
+  
+}
+.index-sw swiper-item{
+  min-height: none;
+  max-height: 150px!important;
+  height: 82%;
+}
+.index-img{
+  height: 123px;
+  width: 100%;
+  border-radius: 15px;
+}
+.cu-bar{
+  margin-top: 0rpx;
+  min-height: 100rpx;
+  margin-bottom: 5px;
+}
+.hotSearch{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.hotBox{
+  width: 50%;
+  padding: 8rpx 30rpx;
+  
+  
+}
+.searchindex{
+  display: inline-block;
+   width: 130px;
+   text-align: left;
+   padding-left: 35rpx;
+   overflow: hidden;
+   font-size: 16px;
+   font-weight: bold;
+
+   font-family: fantasy;
+  font-weight: bold;
+  color: white;
+  background-image: linear-gradient(
+      to right,
+  orangered,
+  orange,
+  gold,
+  lightgreen,
+  cyan,
+  dodgerblue,
+  mediumpurple,
+  hotpink,
+  orangered
+
+  ); 
+  /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+  background-size: 110vw;
+ -webkit-background-clip: text;
+ color: transparent;
+  animation: sliding 180s linear infinite;
+
+
+}
+.sbox{
+  background-color: white;
+  border-radius: 5px;
+  padding: 5rpx 10rpx;
+}
+.searchcontext{
+letter-spacing: 1px;
+ margin-left: 20rpx;
+ font-size: 13px;
+ font-weight:500;
+}
+.hotred{
+  margin-left: 15rpx;
+  background-image:  -webkit-gradient(linear, 0 0, 0 100%, from(red), to(orange));
+  color: yellow;
+  border-radius: 8px 9px 6px 6px;
+  
+  
+}
+.hotTitle{
+  font-size: 16px;
+  margin: 7px 7px;
+  font-weight: 600;
+  margin-top: 8px;
+}
+.hotRecord{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.recordBox{
+  margin: 15rpx 20rpx;
+  background-color:white;
+  border-radius: 5px;
+  padding: 8rpx 15rpx;
+}
+.itemBox{
+  display: inline-block;
+  margin-right: 15rpx;
+  min-width: 24px;
+}
+.closeBox{
+  display: inline-block;
+}
+.delbutton{
+  background: none;
+}
+.shijian{
+  margin-left: 5px;
+  padding: 0px 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 11px;
+  width: 90%;
+}
+.cu-btn{
+  justify-content:flex-start;
+
+}

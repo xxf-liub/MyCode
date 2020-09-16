@@ -1,0 +1,100 @@
+<wxs src="../../utils/subutil.wxs" module="tools" />
+<view class="door">
+
+  <view>
+     <view>
+        <view class="weui-search-bar">
+            <view class="weui-search-bar__form">
+            <!-- 最初始时的搜索框 -->
+                <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" bindinput="getInput" bindconfirm="enterSearch" />
+                </view>
+                <!-- 可编辑时的搜索框 -->
+                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput" >
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                </label>
+            </view>
+            <!-- 取消搜索 -->
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="enterSearch">搜索</view>
+            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">返回</view>
+        </view>
+    </view>
+</view>
+<view class="head" wx:if="{{inputShowed}}">
+<view class="hotTitle">热门搜索</view>
+  <view class="hotSearch" >
+      <view wx:for="{{search}}" class="hotBox">
+      <view bindtap="enterByKey" data-id="{{index}}" class="sbox">
+        <text class="searchindex">{{index+1}},<text class="searchcontext">{{item}}<text class="cuIcon-hot hotred"  wx:if="{{index<3}}"></text></text>
+        </text>
+        </view>
+      </view>
+  </view>
+  <view class="hotTitle">最近搜索</view>
+  <view class="hotRecord">
+    <view wx:for="{{record}}" class="recordBox">
+      <view class="itemBox" bindtap="enterByrecord" data-id="{{item}}"> {{item}}</view>
+      <view class="closeBox" bindtap="deleterecord" data-id="{{index}}"><text class="cuIcon-close lg text-gray" ></text></view>
+      
+    </view>
+   
+  </view>
+   <button wx:if="{{record.length>0}}" bindtap="deleteAll" class="delbutton"><text class="cuIcon-delete lg text-gray">清除纪录</text></button>
+</view>
+
+<view class="body" wx:if="{{!inputShowed}}">
+<swiper class="index-sw" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" >
+  <swiper-item wx:for="{{imgUrls}}" wx:key>
+    <image src="{{item}}" mode="aspectFill" class="index-img"></image>
+  </swiper-item>
+</swiper>
+
+<view class="block">
+  <block wx:for="{{array}}" >
+  <view class="mod" data-id="{{index}}" bindtap="modetap">
+      <image  class="pic" src="{{array[index][1]}}"></image>
+      <view class="text">{{array[index][0]}}</view>
+  </view>
+</block>
+</view>
+
+
+<view class="cu-bar bg-white solid-bottom margin-top" id="ti">
+  <view class='action'>
+    <text class='cuIcon-titles text-orange ' ></text> 
+        <text class="jx">精选</text> 
+  </view>
+</view>
+<scroll-view  style="height:{{viewHieght}}" bindscrolltolower="getMore" class="cont">
+    <view class="myc" wx:for="{{cloud}}" id="mok">
+      <view class="myshow" id="mok-box"  >
+        <view class="title"  data-id="{{index}}" bindtap="enterArt">
+        <image wx:if="{{check}}" src="{{item.p1[0]}}" mode="aspectFill"  data-id="{{index}}"></image> 
+        <view class="mytext">{{item.title}}</view>
+        </view>
+        
+        <view class="content">
+          
+          <view class="desc">
+            
+            <view>
+  <view class="box-round">
+              <view class="shijian">{{tools.sub(item.time,10)}}</view>
+              <view class="box-z">
+                <text class="cu-btn bg animation  shadow z"   id="sh0" data-id="{{index}}" ><text class="cuIcon-attentionfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.zan}}</text></text>
+               
+              </view>
+  </view>   
+           
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="m" wx:if="{{mif}}" bindtap="getm" >{{mes}}</view>
+    <image class="mimg" wx:if="{{!mif}}" src="../image/flicker.gif" />
+</scroll-view>
+</view>
+</view>

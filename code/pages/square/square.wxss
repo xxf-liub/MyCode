@@ -1,0 +1,65 @@
+.tutu{
+  margin-bottom: 5px!important;
+  width: 97%;
+  margin:10px auto;
+  border-radius: 20px;
+  border:1.5px black solid;
+}
+.swpic{
+  border-radius: 20px;
+}
+.left{
+  width: 32%;
+  display: inline-block;
+  margin-right: 1px;
+}
+.left image{
+  width: 100%;
+  margin:3px;
+  padding: 0px ;
+  border-radius: 7px;
+  border:1.5px black solid;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+.right{
+  width: 64%;
+  display: inline-block;
+  margin-left: 2px;
+}
+.right image{
+  height: 115px;
+  margin:5px;
+  padding: 0px;
+  border-radius: 7px;
+  border:1.5px black solid;
+  margin-left: 1px;
+}
+.right1 image{
+  margin-bottom: 2px;
+}
+.right2 image{
+  margin-top: 1px;
+}
+.box{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  justify-content:flex-start;
+  align-items:start;
+}
+.kefu{
+  border:none;
+  padding: 0px;
+  margin:0px;
+  width:auto!important;
+  background: none;
+}
+.share{
+  border:none;
+  padding: 0px;
+  margin:0px;
+  width:auto!important;
+  background: none;
+}

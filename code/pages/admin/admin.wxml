@@ -1,0 +1,63 @@
+<view class="cu-form-group">
+		<view class="title">文件名</view>
+		<input placeholder="请输入源码名称" bindinput="addname"></input>
+	</view>
+  <view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="addabout" placeholder="请输入源码介绍"></textarea>
+	</view>
+<radio-group bindchange="radiochange">
+  <radio id="man" value="网站源码" checked="true">网站源码</radio>
+  <radio id="woman" value="网站模板">网站模板</radio>
+</radio-group>
+	<view class="cu-form-group margin-top">
+		<view class="title">模块选择</view>
+		<picker bindchange="pickerchange" value="{{rindex}}" range="{{region}}">
+			<view class="picker">
+				{{rindex?region[rindex]:'禁止换行，超出容器部分会以 ... 方式截断'}}
+			</view>
+		</picker>
+	</view>
+	<view class="cu-bar bg-white margin-top">
+		<view class="action">
+			图片上传
+		</view>
+		<view class="action">
+			{{array.length}}/6
+		</view>
+	</view>
+	<view class="cu-form-group">
+		<view class="grid col-4 grid-square flex-sub">
+			<view class="bg-img" wx:for="{{array}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{array[index]}}">
+				<image src='{{array[index]}}' mode='aspectFill'></image>
+				<view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+					<text class="cuIcon-close" bindtap="delpic" data-id="{{index}}"></text>
+				</view>
+			</view>
+			<view class="solids" bindtap="addpic" wx:if="{{array.length<4}}">
+				<text class="cuIcon-cameraadd" ></text>
+			</view>
+		</view>
+	</view>
+  <view class="cu-form-group">
+		<view class="title">地址链接</view>
+		<input placeholder="请输入下载地址"  bindinput="address"></input>
+	</view>
+
+  
+<button bindtap="adddata" type="primary">添加数据</button>
+<button bindtap="getdata" type="primary">查询数据</button>
+ <view class="cu-form-group">
+		<view class="title">id</view>
+		<input placeholder="请输入要删除的数据id"   bindinput="delid"></input>
+	</view>
+<button bindtap="deldata" type="primary">删除数据</button>
+ <view class="cu-form-group">
+		<view class="title">id</view>
+		<input placeholder="请输入要更新的数据id"   bindinput="upid"></input>
+	</view>
+   <view class="cu-form-group">
+		<view class="title">id</view>
+		<input placeholder="请输入要更新的介绍"   bindinput="upabout"></input>
+	</view>
+<button bindtap="updata" type="primary">更新数据</button>
+<button bindtap="getopenid" type="primary">获取用户openid</button>

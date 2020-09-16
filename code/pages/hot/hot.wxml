@@ -1,0 +1,35 @@
+<view class="cu-bar bg-white solid-bottom margin-top" id="ti">
+  <view class='action'>
+    <text class='cuIcon-titles text-blue ' ></text> 热度排行列表
+  </view>
+</view>
+<view wx:if="{{loadif}}">
+  <image src="../image/cube.gif" class="loadimg" mode="widthFill"></image>
+  <view class="imgtext">正在加载</view>
+ </view>
+<view wx:else>
+    <view class="cu-card article" wx:for="{{cloud}}" id="mok">
+    <view class="icon">
+      <image wx:if="{{index<3}}" src="{{icon[index]}}" mode="aspectFill"></image>
+    </view>
+      <view class="cu-item shadow" id="mok-box" >
+        <view class="title" bindtap="enterArt" data-id="{{index}}">
+          <view class="text-cut">{{item.title}}</view>
+        </view>
+        <view class="content">
+          <image src="{{item.p1[0]}}" mode="aspectFill" bindtap="enterArt" data-id="{{index}}"></image>
+          <view class="desc">
+            <view class="text-content" bindtap="enterArt" data-id="{{index}}"> {{item.about}}</view>
+            <view class="box-round">
+              <view class="cu-tag bg-blue light sm round">{{item.region}}</view>
+              <view class="box-z">        
+                    <text class="cu-btn bg animation  shadow z" id="sh0" data-id="{{index}}" ><text class="cuIcon-attentionfill margin-lr-xs" id="sh"></text> <text class="zan">{{item.zan}}</text></text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+     <view class="m" wx:if="{{mif}}" bindtap="getm" >{{mes}}</view>
+    <image class="mimg" wx:if="{{!mif}}" src="../image/flicker.gif" />
+</view>

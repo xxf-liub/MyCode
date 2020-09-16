@@ -1,0 +1,149 @@
+.text{
+  padding:1px  3px;
+}
+#ti{
+  
+}
+#mok{
+  
+  box-shadow: 0 0 5rpx rgba(156,38,176,0.25);
+}
+.box-round{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+   align-items:center;
+   margin-top: 2px;
+   margin-bottom: 0px;
+   overflow-x: hidden;
+   width: 95%;
+}
+.round{
+  font-size: 9px!important;
+  margin-right: 0px !important;
+  padding: 8px!important;
+  line-height: 13px;
+}
+.box-z{
+  display: flex;
+  flex-direction: row;
+}
+#mok-box{
+  border: 1px solid  rgba(0, 0, 0, 0.15);
+  border-radius: 5px;
+}
+#sh{
+  color: gray;
+  margin-left: 35rpx!important;
+  vertical-align: middle;
+  font-size: 12px;
+}
+#sh0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+  max-width: 70px;
+  text-align: left;
+  margin-right: 10px;
+}
+#zan{
+  color: gray
+}
+.zan{
+  color: gray;
+  vertical-align: middle;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  
+
+}
+#zan0{
+  margin: 0px;
+  background-color: white;
+  padding: 0px;
+  border: none;
+}
+
+image[class*="gif-"] {
+  border-radius: 6rpx;
+  display: block;
+}
+.m{
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20rpx;
+  margin-bottom: 30px;
+  height: 25px;
+  font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 150s linear infinite;
+  
+}
+.mimg{
+  display: block;
+  width: 45px;
+  height:45px;
+  margin:5rpx auto;
+
+}
+.loadimg{
+  width: 60px;
+  height: 60px;
+  margin: 20px auto;
+  display: block;
+}
+.imgtext{
+  letter-spacing: 2px;
+  width: 70px;
+  font-size: 15px;
+  margin: 20px auto;
+  display: block;
+  font-family: fantasy;
+        font-weight: bold;
+        color: white;
+        background-image: linear-gradient(
+            to right,
+        orangered,
+        orange,
+        gold,
+        lightgreen,
+        cyan,
+        dodgerblue,
+        mediumpurple,
+        hotpink,
+        orangered
+        ); 
+        /*注意颜色的始终要相同,不然就回有突变颜色线条,影响视觉*/
+        background-size: 110vw;
+       -webkit-background-clip: text;
+       color: transparent;
+        animation: sliding 30s linear infinite;
+}
+.active{
+  color: #e32e30;
+}
+.tab{
+  font-weight: bold;
+}
+@keyframes sliding{
+  to{
+      background-position:  -2000vw;
+  }
+}
